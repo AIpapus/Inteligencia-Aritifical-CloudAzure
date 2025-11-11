@@ -1,0 +1,25 @@
+.bienvenida-container {
+text-align: center;
+padding: 40px;
+background: rgba(255, 255, 255, 0.1);
+border-radius: 12px;
+margin: 40px auto;
+max-width: 600px;
+margin-bottom: 20px;
+}
+
+.btn-comenzar {
+margin-top: 20px;
+padding: 12px 24px;
+background-color: #ff9800;
+color: #fff;
+border: none;
+border-radius: 8px;
+font-size: 1.2rem;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.btn-comenzar:hover {
+background-color: #f57c00;
+}
