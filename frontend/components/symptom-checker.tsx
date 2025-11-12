@@ -1,11 +1,12 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { Card } from "@/components/ui/card"
 import { Slider } from "@/components/ui/slider"
 import { Button } from "@/components/ui/button"
 import { diseasesDatabase, getSeverityColor } from "@/lib/diseases-data"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, ArrowRight } from "lucide-react"
 
 interface SymptomSelection {
   [key: string]: number
@@ -23,6 +24,7 @@ interface SymptomCheckerProps {
 }
 
 export function SymptomChecker({ onBack }: SymptomCheckerProps) {
+  const router = useRouter()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [symptomSelections, setSymptomSelections] = useState<SymptomSelection>({})
   const [diagnosis, setDiagnosis] = useState<DiagnosisResult[]>([])
@@ -68,7 +70,6 @@ export function SymptomChecker({ onBack }: SymptomCheckerProps) {
         const userValue = symptomSelections[symptom.name] || 0
         if (userValue > 0) {
           matchedSymptoms++
-          // Calculate how close the user's value is to the disease symptom severity
           const diseaseValue =
             symptom.severity === "poco"
               ? 3
@@ -96,6 +97,11 @@ export function SymptomChecker({ onBack }: SymptomCheckerProps) {
 
     results.sort((a, b) => b.confidence - a.confidence)
     setDiagnosis(results.slice(0, 5))
+  }
+
+  // Nueva función para navegar a los detalles de la enfermedad
+  const handleDiseaseClick = (diseaseName: string) => {
+    router.push(`/enfermedad/${encodeURIComponent(diseaseName)}`)
   }
 
   return (
@@ -182,11 +188,17 @@ export function SymptomChecker({ onBack }: SymptomCheckerProps) {
                   {diagnosis.map((result, index) => (
                     <Card
                       key={result.disease}
-                      className="bg-neutral-800/90 border-neutral-600 p-4 hover:bg-neutral-750 hover:border-neutral-500 transition-all hover:scale-[1.02]"
+                      onClick={() => handleDiseaseClick(result.disease)}
+                      className="bg-neutral-800/90 border-neutral-600 p-4 hover:bg-neutral-750 hover:border-neutral-500 transition-all hover:scale-[1.02] cursor-pointer group"
                     >
                       <div className="flex items-start justify-between mb-2">
-                        <div>
-                          <h3 className="font-semibold text-lg text-white">{result.disease}</h3>
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2">
+                            <h3 className="font-semibold text-lg text-white group-hover:text-blue-400 transition-colors">
+                              {result.disease}
+                            </h3>
+                            <ArrowRight className="w-4 h-4 text-neutral-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+                          </div>
                           <p className="text-sm text-neutral-400">
                             {result.matchedSymptoms} de {result.totalSymptoms} síntomas coinciden
                           </p>
@@ -207,6 +219,9 @@ export function SymptomChecker({ onBack }: SymptomCheckerProps) {
                           }}
                         />
                       </div>
+                      <p className="text-xs text-neutral-500 mt-2 group-hover:text-neutral-400 transition-colors">
+                        Haz click para ver más información
+                      </p>
                     </Card>
                   ))}
                 </div>
