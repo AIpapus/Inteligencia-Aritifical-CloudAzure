@@ -1009,7 +1009,7 @@ function SymptomChecker({ onBack }) {
                 [symptom]: value[0]
             }));
     };
-    const calculateDiagnosis = ()=>{
+    const calculateDiagnosis = async ()=>{
         const results = [];
         __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$diseases$2d$data$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["diseasesDatabase"].forEach((disease)=>{
             let matchScore = 0;
@@ -1036,6 +1036,28 @@ function SymptomChecker({ onBack }) {
         });
         results.sort((a, b)=>b.confidence - a.confidence);
         setDiagnosis(results.slice(0, 5));
+        // Llamada al backend de Flask
+        await sendToBackend();
+    };
+    const sendToBackend = async ()=>{
+        try {
+            const res = await fetch("/api/diagnostico", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    sintomas: symptomSelections
+                })
+            });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const json = await res.json();
+            console.log("Respuesta del backend:", json);
+        // Aquí puedes usar la respuesta del backend si quieres
+        } catch (err) {
+            console.error("Error enviando diagnóstico:", err);
+            alert("Error al procesar diagnóstico");
+        }
     };
     // Nueva función para navegar a los detalles de la enfermedad
     const handleDiseaseClick = (diseaseName)=>{
@@ -1053,7 +1075,7 @@ function SymptomChecker({ onBack }) {
                 }
             }, void 0, false, {
                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                lineNumber: 110,
+                lineNumber: 133,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1071,14 +1093,14 @@ function SymptomChecker({ onBack }) {
                                         className: "w-4 h-4 mr-2"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                        lineNumber: 127,
+                                        lineNumber: 150,
                                         columnNumber: 15
                                     }, this),
                                     "Volver"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                lineNumber: 122,
+                                lineNumber: 145,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1089,7 +1111,7 @@ function SymptomChecker({ onBack }) {
                                         children: "Diagnóstico de Enfermedades"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                        lineNumber: 132,
+                                        lineNumber: 155,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1097,19 +1119,19 @@ function SymptomChecker({ onBack }) {
                                         children: "Selecciona tus síntomas y ajusta su intensidad del 0 al 10"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                        lineNumber: 133,
+                                        lineNumber: 156,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                lineNumber: 131,
+                                lineNumber: 154,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                        lineNumber: 120,
+                        lineNumber: 143,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1126,7 +1148,7 @@ function SymptomChecker({ onBack }) {
                                                 children: "Síntomas"
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                lineNumber: 141,
+                                                lineNumber: 164,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1142,7 +1164,7 @@ function SymptomChecker({ onBack }) {
                                                                         children: symptom
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                        lineNumber: 146,
+                                                                        lineNumber: 169,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1157,13 +1179,13 @@ function SymptomChecker({ onBack }) {
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                        lineNumber: 147,
+                                                                        lineNumber: 170,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                lineNumber: 145,
+                                                                lineNumber: 168,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$slider$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Slider"], {
@@ -1176,24 +1198,24 @@ function SymptomChecker({ onBack }) {
                                                                 className: "w-full"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                lineNumber: 157,
+                                                                lineNumber: 180,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, symptom, true, {
                                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                        lineNumber: 144,
+                                                        lineNumber: 167,
                                                         columnNumber: 19
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                lineNumber: 142,
+                                                lineNumber: 165,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                        lineNumber: 140,
+                                        lineNumber: 163,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1202,13 +1224,13 @@ function SymptomChecker({ onBack }) {
                                         children: "Analizar Síntomas"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                        lineNumber: 169,
+                                        lineNumber: 192,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                lineNumber: 139,
+                                lineNumber: 162,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1225,7 +1247,7 @@ function SymptomChecker({ onBack }) {
                                                 children: "Posibles Diagnósticos"
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                lineNumber: 180,
+                                                lineNumber: 203,
                                                 columnNumber: 15
                                             }, this),
                                             diagnosis.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1236,7 +1258,7 @@ function SymptomChecker({ onBack }) {
                                                         children: 'Ajusta los síntomas y presiona "Analizar Síntomas"'
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                        lineNumber: 183,
+                                                        lineNumber: 206,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1244,13 +1266,13 @@ function SymptomChecker({ onBack }) {
                                                         children: "para ver posibles diagnósticos"
                                                     }, void 0, false, {
                                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                        lineNumber: 184,
+                                                        lineNumber: 207,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                lineNumber: 182,
+                                                lineNumber: 205,
                                                 columnNumber: 17
                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "space-y-4 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar",
@@ -1272,20 +1294,20 @@ function SymptomChecker({ onBack }) {
                                                                                         children: result.disease
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                                        lineNumber: 197,
+                                                                                        lineNumber: 220,
                                                                                         columnNumber: 29
                                                                                     }, this),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
                                                                                         className: "w-4 h-4 text-neutral-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                                        lineNumber: 200,
+                                                                                        lineNumber: 223,
                                                                                         columnNumber: 29
                                                                                     }, this)
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                                lineNumber: 196,
+                                                                                lineNumber: 219,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1298,13 +1320,13 @@ function SymptomChecker({ onBack }) {
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                                lineNumber: 202,
+                                                                                lineNumber: 225,
                                                                                 columnNumber: 27
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                        lineNumber: 195,
+                                                                        lineNumber: 218,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1318,13 +1340,13 @@ function SymptomChecker({ onBack }) {
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                        lineNumber: 206,
+                                                                        lineNumber: 229,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                lineNumber: 194,
+                                                                lineNumber: 217,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1337,12 +1359,12 @@ function SymptomChecker({ onBack }) {
                                                                     }
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                    lineNumber: 214,
+                                                                    lineNumber: 237,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                lineNumber: 213,
+                                                                lineNumber: 236,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1350,24 +1372,24 @@ function SymptomChecker({ onBack }) {
                                                                 children: "Haz click para ver más información"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                lineNumber: 222,
+                                                                lineNumber: 245,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, result.disease, true, {
                                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                        lineNumber: 189,
+                                                        lineNumber: 212,
                                                         columnNumber: 21
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                lineNumber: 187,
+                                                lineNumber: 210,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                        lineNumber: 179,
+                                        lineNumber: 202,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -1378,7 +1400,7 @@ function SymptomChecker({ onBack }) {
                                                 children: "Escala de Severidad"
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                lineNumber: 233,
+                                                lineNumber: 256,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1394,7 +1416,7 @@ function SymptomChecker({ onBack }) {
                                                                 }
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                lineNumber: 236,
+                                                                lineNumber: 259,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1402,13 +1424,13 @@ function SymptomChecker({ onBack }) {
                                                                 children: "Poco (1-3)"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                lineNumber: 237,
+                                                                lineNumber: 260,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                        lineNumber: 235,
+                                                        lineNumber: 258,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1421,7 +1443,7 @@ function SymptomChecker({ onBack }) {
                                                                 }
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                lineNumber: 240,
+                                                                lineNumber: 263,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1429,13 +1451,13 @@ function SymptomChecker({ onBack }) {
                                                                 children: "Medio (4-5)"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                lineNumber: 241,
+                                                                lineNumber: 264,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                        lineNumber: 239,
+                                                        lineNumber: 262,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1448,7 +1470,7 @@ function SymptomChecker({ onBack }) {
                                                                 }
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                lineNumber: 244,
+                                                                lineNumber: 267,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1456,13 +1478,13 @@ function SymptomChecker({ onBack }) {
                                                                 children: "Considerable (6-7)"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                lineNumber: 245,
+                                                                lineNumber: 268,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                        lineNumber: 243,
+                                                        lineNumber: 266,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1475,7 +1497,7 @@ function SymptomChecker({ onBack }) {
                                                                 }
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                lineNumber: 248,
+                                                                lineNumber: 271,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1483,37 +1505,37 @@ function SymptomChecker({ onBack }) {
                                                                 children: "Demasiado (8-10)"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                                lineNumber: 249,
+                                                                lineNumber: 272,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                        lineNumber: 247,
+                                                        lineNumber: 270,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                                lineNumber: 234,
+                                                lineNumber: 257,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                        lineNumber: 232,
+                                        lineNumber: 255,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                                lineNumber: 178,
+                                lineNumber: 201,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                        lineNumber: 137,
+                        lineNumber: 160,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
@@ -1522,24 +1544,24 @@ function SymptomChecker({ onBack }) {
                             children: "⚠️ Esta herramienta es solo informativa. Consulta a un profesional médico para un diagnóstico preciso."
                         }, void 0, false, {
                             fileName: "[project]/frontend/components/symptom-checker.tsx",
-                            lineNumber: 257,
+                            lineNumber: 280,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/frontend/components/symptom-checker.tsx",
-                        lineNumber: 256,
+                        lineNumber: 279,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/frontend/components/symptom-checker.tsx",
-                lineNumber: 119,
+                lineNumber: 142,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/frontend/components/symptom-checker.tsx",
-        lineNumber: 108,
+        lineNumber: 131,
         columnNumber: 5
     }, this);
 }
