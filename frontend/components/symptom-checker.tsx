@@ -59,51 +59,9 @@ export function SymptomChecker({ onBack }: SymptomCheckerProps) {
     }))
   }
 
-const calculateDiagnosis = async () => {  // Cambio a async
-  const results: DiagnosisResult[] = []
-
-  diseasesDatabase.forEach((disease) => {
-    let matchScore = 0
-    let matchedSymptoms = 0
-
-    disease.symptoms.forEach((symptom) => {
-      const userValue = symptomSelections[symptom.name] || 0
-      if (userValue > 0) {
-        matchedSymptoms++
-        const diseaseValue =
-          symptom.severity === "poco"
-            ? 3
-            : symptom.severity === "medio"
-              ? 5
-              : symptom.severity === "considerable"
-                ? 7
-                : 10
-        const difference = Math.abs(userValue - diseaseValue)
-        const similarityScore = Math.max(0, 10 - difference)
-        matchScore += similarityScore
-      }
-    })
-
-    if (matchedSymptoms > 0) {
-      const confidence = (matchScore / (disease.symptoms.length * 10)) * 100
-      results.push({
-        disease: disease.name,
-        confidence: Math.round(confidence),
-        matchedSymptoms,
-        totalSymptoms: disease.symptoms.length,
-      })
-    }
-  })
-
-  results.sort((a, b) => b.confidence - a.confidence)
-  setDiagnosis(results.slice(0, 5))
-
-  // Llamada al backend de Flask
-  await sendToBackend()
-}
-
-const sendToBackend = async () => {
+const calculateDiagnosis = async () => {
   try {
+    // Llamar al backend para obtener predicciones del modelo de AI
     const res = await fetch("/api/diagnostico", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -112,13 +70,41 @@ const sendToBackend = async () => {
     
     if (!res.ok) throw new Error(`HTTP ${res.status}`)
     
-    const json = await res.json()
-    console.log("Respuesta del backend:", json)
-    // Aquí puedes usar la respuesta del backend si quieres
+    const aiResponse = await res.json()
+    
+    // Convertir predicciones del modelo de AI al formato DiagnosisResult
+    const results: DiagnosisResult[] = aiResponse.predictions.map((prediction: { disease: string; confidence: number }) => {
+      // Buscar la enfermedad en diseasesDatabase para obtener información adicional
+      const disease = diseasesDatabase.find(d => d.name === prediction.disease)
+      
+      // Calcular síntomas coincidentes (síntomas de la enfermedad que el usuario seleccionó)
+      let matchedSymptoms = 0
+      if (disease) {
+        disease.symptoms.forEach((symptom) => {
+          const userValue = symptomSelections[symptom.name] || 0
+          if (userValue > 0) {
+            matchedSymptoms++
+          }
+        })
+      }
+      
+      return {
+        disease: prediction.disease,
+        confidence: Math.round(prediction.confidence), // Confianza del modelo de AI
+        matchedSymptoms: matchedSymptoms,
+        totalSymptoms: disease?.symptoms.length || 0,
+      }
+    })
+    
+    // Ordenar por confianza (ya viene ordenado del backend, pero por si acaso)
+    results.sort((a, b) => b.confidence - a.confidence)
+    
+    // Mostrar solo las top 5 predicciones
+    setDiagnosis(results.slice(0, 5))
     
   } catch (err) {
-    console.error("Error enviando diagnóstico:", err)
-    alert("Error al procesar diagnóstico")
+    console.error("Error obteniendo diagnóstico del modelo de AI:", err)
+    alert("Error al procesar diagnóstico. Por favor, intenta nuevamente.")
   }
 }
 
