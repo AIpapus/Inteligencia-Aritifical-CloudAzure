@@ -1,19 +1,84 @@
 "use client"
 
 import { useParams, useRouter } from "next/navigation"
+import { useState, useEffect } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, AlertCircle, Info } from "lucide-react"
-import { diseasesDatabase, getSeverityColor } from "@/lib/diseases-data"
+import { ArrowLeft, AlertCircle, Info, Brain, TrendingUp, Loader2 } from "lucide-react"
+import { diseasesDatabase, getSeverityColor, severityToNumber, normalizeDiseaseName } from "@/lib/diseases-data"
+
+interface AIPrediction {
+  disease: string
+  confidence: number
+}
+
+interface AIDiagnosisResponse {
+  predictions: AIPrediction[]
+  processed_symptoms: string[]
+  total_symptoms: number
+}
 
 export default function EnfermedadDetalle() {
 const params = useParams()
 const router = useRouter()
 const diseaseId = params.id as string
+const [aiData, setAiData] = useState<AIDiagnosisResponse | null>(null)
+const [loading, setLoading] = useState(true)
+const [error, setError] = useState<string | null>(null)
 
   // Buscar la enfermedad por nombre (convertido desde URL)
 const diseaseName = decodeURIComponent(diseaseId)
 const disease = diseasesDatabase.find(d => d.name === diseaseName)
+
+  // Función para obtener análisis del modelo de AI
+  useEffect(() => {
+    if (!disease) return
+
+    const fetchAIData = async () => {
+      setLoading(true)
+      setError(null)
+      
+      try {
+        // Convertir síntomas de la enfermedad a formato para el modelo
+        const symptomsDict: Record<string, number> = {}
+        disease.symptoms.forEach(symptom => {
+          symptomsDict[symptom.name] = severityToNumber(symptom.severity)
+        })
+
+        const response = await fetch("/api/diagnostico", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ sintomas: symptomsDict }),
+        })
+
+        if (!response.ok) {
+          throw new Error(`Error del servidor: ${response.status}`)
+        }
+
+        const data: AIDiagnosisResponse = await response.json()
+        setAiData(data)
+      } catch (err) {
+        console.error("Error obteniendo datos del AI:", err)
+        setError("No se pudo obtener el análisis del modelo de AI")
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchAIData()
+  }, [disease])
+
+  // Buscar la enfermedad en las predicciones (ahora todas las enfermedades coinciden exactamente)
+  const diseaseMatch = aiData?.predictions.find(
+    p => normalizeDiseaseName(p.disease) === normalizeDiseaseName(diseaseName)
+  ) || null
+
+  const diseaseConfidence = diseaseMatch?.confidence || null
+
+  // Ordenar predicciones por confianza
+  const topPredictions = aiData?.predictions
+    .slice(0, 5)
+    .sort((a, b) => b.confidence - a.confidence) || []
 
 if (!disease) {
     return (
@@ -53,6 +118,126 @@ return (
             <Info className="w-5 h-5" />
             <p>Información detallada sobre la enfermedad</p>
         </div>
+        
+        {/* Análisis del Modelo de AI */}
+        {loading && (
+          <Card className="bg-neutral-900/80 border-neutral-700 p-4 mt-4 backdrop-blur-sm">
+            <div className="flex items-center gap-3 text-neutral-300">
+              <Loader2 className="w-5 h-5 animate-spin" />
+              <p>Analizando con el modelo de AI...</p>
+            </div>
+          </Card>
+        )}
+
+        {error && (
+          <Card className="bg-red-900/20 border-red-700 p-4 mt-4 backdrop-blur-sm">
+            <div className="flex items-center gap-2 text-red-300">
+              <AlertCircle className="w-5 h-5" />
+              <p>{error}</p>
+            </div>
+          </Card>
+        )}
+
+        {aiData && !loading && (
+          <Card className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 border-purple-700 p-6 mt-4 backdrop-blur-sm">
+            <div className="flex items-start gap-3 mb-4">
+              <Brain className="w-6 h-6 text-purple-400 flex-shrink-0 mt-1" />
+              <div className="flex-1">
+                <h2 className="text-xl font-semibold mb-2 flex items-center gap-2">
+                  Análisis del Modelo de AI
+                  <TrendingUp className="w-5 h-5 text-purple-400" />
+                </h2>
+                
+                {diseaseConfidence !== null ? (
+                  <div className="mb-4">
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="text-neutral-300">Nivel de confianza para esta enfermedad:</span>
+                      <span className={`text-2xl font-bold ${
+                        diseaseConfidence >= 70 ? 'text-green-400' :
+                        diseaseConfidence >= 50 ? 'text-yellow-400' :
+                        'text-orange-400'
+                      }`}>
+                        {diseaseConfidence.toFixed(1)}%
+                      </span>
+                    </div>
+                    <div className="w-full bg-neutral-700 rounded-full h-3 overflow-hidden">
+                      <div
+                        className="h-full transition-all bg-gradient-to-r from-purple-500 to-blue-500"
+                        style={{ width: `${diseaseConfidence}%` }}
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="mb-4">
+                    <div className="p-3 bg-yellow-900/20 border border-yellow-700/50 rounded-lg">
+                      <p className="text-yellow-200 text-sm mb-1">
+                        ⚠️ <strong>Enfermedad no identificada directamente por el modelo</strong>
+                      </p>
+                      <p className="text-neutral-300 text-xs">
+                        El modelo procesó los síntomas pero no identificó esta enfermedad específica en las predicciones principales. 
+                        Revisa las predicciones del modelo a continuación para ver enfermedades relacionadas.
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                {aiData.processed_symptoms && aiData.processed_symptoms.length > 0 && (
+                  <div className="mb-4">
+                    <p className="text-neutral-300 text-sm mb-2">
+                      Síntomas reconocidos por el modelo ({aiData.processed_symptoms.length}):
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {aiData.processed_symptoms.slice(0, 8).map((symptom, idx) => (
+                        <span
+                          key={idx}
+                          className="px-2 py-1 bg-purple-900/40 border border-purple-700 rounded text-xs text-purple-200"
+                        >
+                          {symptom}
+                        </span>
+                      ))}
+                      {aiData.processed_symptoms.length > 8 && (
+                        <span className="px-2 py-1 text-xs text-neutral-400">
+                          +{aiData.processed_symptoms.length - 8} más
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                )}
+
+                {topPredictions.length > 0 && (
+                  <div>
+                    <p className="text-neutral-300 text-sm mb-2">Enfermedades predichas por el modelo:</p>
+                    <div className="space-y-2">
+                      {topPredictions.map((pred, idx) => {
+                        const isMatch = normalizeDiseaseName(pred.disease) === normalizeDiseaseName(diseaseName)
+                        return (
+                          <div
+                            key={idx}
+                            className={`flex justify-between items-center p-2 rounded ${
+                              isMatch
+                                ? 'bg-purple-900/50 border border-purple-600'
+                                : 'bg-neutral-800/50'
+                            }`}
+                          >
+                            <span className="text-sm text-neutral-200">
+                              {pred.disease}
+                              {isMatch && (
+                                <span className="ml-2 text-xs text-purple-400">← Coincide</span>
+                              )}
+                            </span>
+                            <span className="text-sm font-semibold text-purple-300">
+                              {pred.confidence.toFixed(1)}%
+                            </span>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </Card>
+        )}
         </div>
 
         {/* Card de síntomas */}
@@ -100,19 +285,36 @@ return (
         </div>
         </Card>
 
-        {/* Información adicional (puedes expandir esto) */}
+        {/* Información adicional */}
         <Card className="bg-neutral-900/80 border-neutral-700 p-6 backdrop-blur-sm">
         <h2 className="text-2xl font-semibold mb-4">Información Adicional</h2>
         <div className="space-y-4 text-neutral-300">
             <div>
+            <h3 className="font-semibold text-white mb-2">Categoría:</h3>
+            <p>{disease.category}</p>
+            </div>
+            
+            <div>
             <h3 className="font-semibold text-white mb-2">Total de síntomas:</h3>
             <p>{disease.symptoms.length} síntomas registrados</p>
             </div>
+
+            {aiData && (
+              <div>
+                <h3 className="font-semibold text-white mb-2">Análisis del modelo:</h3>
+                <p className="text-sm">
+                  {diseaseConfidence !== null
+                    ? `El modelo de AI identificó esta enfermedad con un ${diseaseConfidence.toFixed(1)}% de confianza basado en los síntomas proporcionados.`
+                    : `El modelo procesó ${aiData.total_symptoms} síntomas para generar predicciones.`}
+                </p>
+              </div>
+            )}
             
             <div className="mt-6 p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
             <p className="text-yellow-200 text-sm">
                 ⚠️ <strong>Importante:</strong> Esta información es solo de carácter informativo. 
                 Siempre consulta con un profesional médico para un diagnóstico preciso y tratamiento adecuado.
+                El análisis del modelo de AI es una herramienta de apoyo y no reemplaza la evaluación médica profesional.
             </p>
             </div>
         </div>

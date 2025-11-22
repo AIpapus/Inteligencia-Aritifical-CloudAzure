@@ -197,8 +197,12 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 __turbopack_context__.s([
     "diseasesDatabase",
     ()=>diseasesDatabase,
+    "getAIModelName",
+    ()=>getAIModelName,
     "getSeverityColor",
     ()=>getSeverityColor,
+    "normalizeDiseaseName",
+    ()=>normalizeDiseaseName,
     "numberToSeverity",
     ()=>numberToSeverity,
     "severityToNumber",
@@ -206,7 +210,33 @@ __turbopack_context__.s([
 ]);
 const diseasesDatabase = [
     {
-        name: "Gripe",
+        name: "Sarampión",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Erupción",
+                severity: "demasiado",
+                description: "Erupción roja en el cuerpo"
+            },
+            {
+                name: "Tos",
+                severity: "medio",
+                description: "Síntoma respiratorio"
+            },
+            {
+                name: "Fiebre alta",
+                severity: "considerable",
+                description: "Elevación de temperatura"
+            },
+            {
+                name: "Pequeñas manchas blancas en las mejillas",
+                severity: "medio",
+                description: "Manchas de Koplik"
+            }
+        ]
+    },
+    {
+        name: "Resfriado común",
         category: "Enfermedades infecciosas",
         symptoms: [
             {
@@ -217,331 +247,437 @@ const diseasesDatabase = [
             {
                 name: "Dolor de cabeza",
                 severity: "poco",
-                description: "Cefalea leve por inflamación"
+                description: "Cefalea leve"
             },
             {
                 name: "Fatiga",
                 severity: "considerable",
                 description: "Cansancio general"
-            }
-        ]
-    },
-    {
-        name: "COVID-19",
-        category: "Enfermedades infecciosas",
-        symptoms: [
-            {
-                name: "Fiebre",
-                severity: "considerable",
-                description: "Elevación considerable de temperatura"
             },
             {
                 name: "Tos seca",
                 severity: "medio",
-                description: "Irritación respiratoria"
+                description: "Tos irritativa"
             },
             {
-                name: "Pérdida de olfato",
-                severity: "demasiado",
-                description: "Alteración neurológica"
-            }
-        ]
-    },
-    {
-        name: "Tuberculosis",
-        category: "Enfermedades infecciosas",
-        symptoms: [
-            {
-                name: "Tos persistente",
-                severity: "demasiado",
-                description: "Tos crónica con flema"
-            },
-            {
-                name: "Sudores nocturnos",
+                name: "Secreción nasal",
                 severity: "medio",
-                description: "Síntoma sistémico"
+                description: "Nariz tapada o secreción"
             },
             {
-                name: "Pérdida de peso",
+                name: "Estornudos",
                 severity: "poco",
-                description: "Pérdida de peso gradual"
+                description: "Estornudos frecuentes"
             }
         ]
     },
     {
-        name: "Dengue",
+        name: "Conjuntivitis",
         category: "Enfermedades infecciosas",
         symptoms: [
             {
-                name: "Dolor articular",
-                severity: "considerable",
-                description: "Dolor intenso en articulaciones"
-            },
-            {
-                name: "Dolor detrás de los ojos",
+                name: "Ojo rosado",
                 severity: "medio",
-                description: "Característico del dengue"
+                description: "Inflamación del ojo"
             },
             {
-                name: "Sarpullido",
+                name: "Ojos rojos",
+                severity: "considerable",
+                description: "Enrojecimiento del ojo"
+            },
+            {
+                name: "Secreción ocular",
+                severity: "medio",
+                description: "Secreción en los ojos"
+            },
+            {
+                name: "Ojos llorosos",
                 severity: "poco",
-                description: "Lesiones cutáneas leves"
-            }
-        ]
-    },
-    {
-        name: "Cólera",
-        category: "Enfermedades infecciosas",
-        symptoms: [
-            {
-                name: "Diarrea acuosa",
-                severity: "demasiado",
-                description: "Pérdida rápida de líquidos"
+                description: "Lagrimeo excesivo"
             },
             {
-                name: "Calambres musculares",
-                severity: "medio",
-                description: "Contracciones musculares"
-            },
-            {
-                name: "Deshidratación",
-                severity: "considerable",
-                description: "Pérdida severa de líquidos"
-            }
-        ]
-    },
-    {
-        name: "Sarampión",
-        category: "Enfermedades infecciosas",
-        symptoms: [
-            {
-                name: "Erupción cutánea",
-                severity: "demasiado",
-                description: "Lesiones rojas en piel"
-            },
-            {
-                name: "Tos",
+                name: "Picazón",
                 severity: "poco",
-                description: "Síntoma respiratorio"
-            },
-            {
-                name: "Manchas de Koplik",
-                severity: "medio",
-                description: "Lesiones en mucosa oral"
+                description: "Sensación de picazón"
             }
         ]
     },
     {
-        name: "Malaria",
+        name: "Shigellosis (Disentería Bacilar)",
         category: "Enfermedades infecciosas",
         symptoms: [
             {
-                name: "Escalofríos",
-                severity: "considerable",
-                description: "Escalofríos intensos"
-            },
-            {
-                name: "Sudoración excesiva",
-                severity: "medio",
-                description: "Tras episodios febriles"
+                name: "Diarrea",
+                severity: "demasiado",
+                description: "Diarrea acuosa o con sangre"
             },
             {
                 name: "Dolor abdominal",
-                severity: "poco",
-                description: "Dolor abdominal leve"
-            }
-        ]
-    },
-    {
-        name: "Hepatitis A",
-        category: "Enfermedades infecciosas",
-        symptoms: [
+                severity: "considerable",
+                description: "Dolor o calambres abdominales"
+            },
             {
-                name: "Ictericia",
+                name: "Fiebre",
+                severity: "medio",
+                description: "Elevación de temperatura"
+            },
+            {
+                name: "Heces con sangre",
                 severity: "demasiado",
-                description: "Color amarillo en piel y ojos"
+                description: "Sangre en las heces"
             },
             {
                 name: "Náuseas",
                 severity: "medio",
-                description: "Alteración digestiva"
-            },
-            {
-                name: "Orina oscura",
-                severity: "poco",
-                description: "Orina de color oscuro"
+                description: "Sensación de náusea"
             }
         ]
     },
     {
-        name: "Fiebre Tifoidea",
+        name: "Tos ferina (Pertussis)",
         category: "Enfermedades infecciosas",
         symptoms: [
+            {
+                name: "Ataques de tos severos",
+                severity: "demasiado",
+                description: "Tos paroxística"
+            },
+            {
+                name: "Tos ferina",
+                severity: "considerable",
+                description: "Tos característica"
+            },
+            {
+                name: "Fiebre",
+                severity: "medio",
+                description: "Elevación moderada de temperatura"
+            },
+            {
+                name: "Vómitos después de toser",
+                severity: "medio",
+                description: "Vómitos post-tos"
+            },
+            {
+                name: "Secreción nasal",
+                severity: "poco",
+                description: "Nariz tapada"
+            }
+        ]
+    },
+    {
+        name: "Infección por Norovirus",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Diarrea",
+                severity: "considerable",
+                description: "Diarrea acuosa"
+            },
+            {
+                name: "Vómitos",
+                severity: "medio",
+                description: "Náuseas o vómitos"
+            },
             {
                 name: "Dolor abdominal",
-                severity: "considerable",
-                description: "Inflamación intestinal"
-            },
-            {
-                name: "Estreñimiento",
-                severity: "poco",
-                description: "Alteración digestiva"
-            },
-            {
-                name: "Fiebre prolongada",
-                severity: "demasiado",
-                description: "Persistente por infección"
-            }
-        ]
-    },
-    {
-        name: "VIH (fase aguda)",
-        category: "Enfermedades infecciosas",
-        symptoms: [
-            {
-                name: "Ganglios inflamados",
                 severity: "medio",
-                description: "Adenopatías"
+                description: "Dolor o calambres abdominales"
             },
             {
-                name: "Dolor muscular",
+                name: "Fiebre leve",
                 severity: "poco",
-                description: "Síntoma inespecífico"
+                description: "Fiebre baja"
             },
             {
-                name: "Sudor nocturno",
-                severity: "considerable",
-                description: "Común en fase inicial"
-            }
-        ]
-    },
-    {
-        name: "Tétanos",
-        category: "Enfermedades infecciosas",
-        symptoms: [
-            {
-                name: "Rigidez muscular",
-                severity: "demasiado",
-                description: "Contracciones dolorosas"
-            },
-            {
-                name: "Espasmos",
-                severity: "considerable",
-                description: "Movimientos involuntarios"
-            },
-            {
-                name: "Dificultad para tragar",
-                severity: "medio",
-                description: "Dificultad para tragar"
-            }
-        ]
-    },
-    {
-        name: "Zika",
-        category: "Enfermedades infecciosas",
-        symptoms: [
-            {
-                name: "Conjuntivitis",
+                name: "Dolores musculares",
                 severity: "poco",
-                description: "Inflamación ocular"
-            },
-            {
-                name: "Dolor muscular",
-                severity: "medio",
-                description: "Dolor generalizado"
-            },
-            {
-                name: "Erupción cutánea",
-                severity: "considerable",
-                description: "Lesiones en piel"
+                description: "Malestar general"
             }
         ]
     },
     {
-        name: "Ébola",
+        name: "Roséola",
         category: "Enfermedades infecciosas",
         symptoms: [
-            {
-                name: "Hemorragias",
-                severity: "demasiado",
-                description: "Sangrado interno y externo"
-            },
             {
                 name: "Fiebre alta",
                 severity: "demasiado",
+                description: "Fiebre alta repentina"
+            },
+            {
+                name: "Erupción",
+                severity: "medio",
+                description: "Erupción después de la fiebre"
+            },
+            {
+                name: "Ganglios linfáticos inflamados",
+                severity: "poco",
+                description: "Ganglios inflamados"
+            },
+            {
+                name: "Irritabilidad",
+                severity: "medio",
+                description: "Irritabilidad en niños"
+            }
+        ]
+    },
+    {
+        name: "Rubéola",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Erupción roja en el cuerpo",
+                severity: "considerable",
+                description: "Erupción característica"
+            },
+            {
+                name: "Fiebre",
+                severity: "medio",
+                description: "Fiebre leve"
+            },
+            {
+                name: "Ganglios linfáticos inflamados",
+                severity: "medio",
+                description: "Ganglios inflamados"
+            },
+            {
+                name: "Dolor en las articulaciones",
+                severity: "poco",
+                description: "Dolores articulares"
+            }
+        ]
+    },
+    {
+        name: "Paperas",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Glándulas salivales inflamadas y dolorosas",
+                severity: "demasiado",
+                description: "Hinchazón de las glándulas parótidas"
+            },
+            {
+                name: "Fiebre",
+                severity: "medio",
+                description: "Elevación de temperatura"
+            },
+            {
+                name: "Dolor al masticar o tragar",
+                severity: "considerable",
+                description: "Dificultad al tragar"
+            },
+            {
+                name: "Dolores musculares",
+                severity: "poco",
+                description: "Malestar general"
+            },
+            {
+                name: "Cansancio",
+                severity: "medio",
+                description: "Fatiga"
+            }
+        ]
+    },
+    {
+        name: "Escarlatina",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Garganta roja y dolorida con parches",
+                severity: "demasiado",
+                description: "Dolor de garganta intenso"
+            },
+            {
+                name: "Fiebre alta",
+                severity: "considerable",
                 description: "Elevación extrema de temperatura"
             },
             {
-                name: "Dolor abdominal",
-                severity: "considerable",
-                description: "Dolor abdominal severo"
-            }
-        ]
-    },
-    {
-        name: "Rabia",
-        category: "Enfermedades infecciosas",
-        symptoms: [
-            {
-                name: "Hidrofobia",
-                severity: "demasiado",
-                description: "Miedo al agua por espasmos"
-            },
-            {
-                name: "Agitación",
-                severity: "considerable",
-                description: "Alteración neurológica"
-            },
-            {
-                name: "Salivación excesiva",
+                name: "Erupción",
                 severity: "medio",
-                description: "Hipersalivación"
-            }
-        ]
-    },
-    {
-        name: "Leptospirosis",
-        category: "Enfermedades infecciosas",
-        symptoms: [
-            {
-                name: "Dolor muscular",
-                severity: "considerable",
-                description: "Dolor intenso"
+                description: "Erupción roja característica"
             },
             {
-                name: "Ictericia",
+                name: "Lengua de fresa",
                 severity: "medio",
-                description: "Afectación hepática"
-            },
-            {
-                name: "Insuficiencia renal",
-                severity: "demasiado",
-                description: "Daño renal severo"
-            }
-        ]
-    },
-    {
-        name: "Meningitis",
-        category: "Enfermedades infecciosas",
-        symptoms: [
-            {
-                name: "Rigidez de cuello",
-                severity: "demasiado",
-                description: "Signo clásico"
-            },
-            {
-                name: "Fotofobia",
-                severity: "considerable",
-                description: "Sensibilidad a la luz"
+                description: "Lengua característica"
             },
             {
                 name: "Dolor de cabeza",
+                severity: "poco",
+                description: "Cefalea"
+            }
+        ]
+    },
+    {
+        name: "Faringitis estreptocócica",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Dolor de garganta",
+                severity: "demasiado",
+                description: "Garganta roja y dolorida"
+            },
+            {
+                name: "Fiebre",
+                severity: "considerable",
+                description: "Elevación de temperatura"
+            },
+            {
+                name: "Amígdalas rojas e inflamadas",
                 severity: "medio",
-                description: "Cefalea intensa"
+                description: "Amígdalas inflamadas"
+            },
+            {
+                name: "Ganglios linfáticos inflamados",
+                severity: "medio",
+                description: "Ganglios inflamados"
+            },
+            {
+                name: "Dolor de cabeza",
+                severity: "poco",
+                description: "Cefalea"
+            }
+        ]
+    },
+    {
+        name: "Impétigo",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Llagas agrupadas",
+                severity: "considerable",
+                description: "Lesiones en la piel"
+            },
+            {
+                name: "Costra amarilla",
+                severity: "medio",
+                description: "Costras características"
+            },
+            {
+                name: "Picazón",
+                severity: "medio",
+                description: "Picazón en las lesiones"
+            },
+            {
+                name: "Enrojecimiento",
+                severity: "poco",
+                description: "Zonas enrojecidas"
+            }
+        ]
+    },
+    {
+        name: "Candidiasis oral",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Parches blancos en las amígdalas",
+                severity: "medio",
+                description: "Manchas blancas"
+            },
+            {
+                name: "Dolor o ardor en la boca",
+                severity: "considerable",
+                description: "Malestar bucal"
+            },
+            {
+                name: "Sensación de algodón en la boca",
+                severity: "poco",
+                description: "Sensación característica"
+            },
+            {
+                name: "Pérdida del gusto",
+                severity: "poco",
+                description: "Alteración del gusto"
+            }
+        ]
+    },
+    {
+        name: "Enfermedad de manos, pies y boca",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Erupción en manos y pies",
+                severity: "considerable",
+                description: "Erupción característica"
+            },
+            {
+                name: "Llagas en la boca",
+                severity: "medio",
+                description: "Lesiones bucales"
+            },
+            {
+                name: "Fiebre",
+                severity: "medio",
+                description: "Elevación de temperatura"
+            },
+            {
+                name: "Dolor de garganta",
+                severity: "poco",
+                description: "Malestar de garganta"
+            }
+        ]
+    },
+    {
+        name: "Quinta enfermedad",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Erupción en la cara",
+                severity: "considerable",
+                description: "Mejillas enrojecidas"
+            },
+            {
+                name: "Fiebre",
+                severity: "medio",
+                description: "Fiebre leve"
+            },
+            {
+                name: "Dolores corporales",
+                severity: "poco",
+                description: "Malestar general"
+            },
+            {
+                name: "Dolor de cabeza",
+                severity: "poco",
+                description: "Cefalea leve"
+            }
+        ]
+    },
+    {
+        name: "Infestación de piojos",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Piojos visibles en el cuero cabelludo",
+                severity: "demasiado",
+                description: "Presencia de piojos"
+            },
+            {
+                name: "Picazón en cuero cabelludo/cuello/orejas",
+                severity: "considerable",
+                description: "Picazón intensa"
+            },
+            {
+                name: "Cosquilleo en el cabello",
+                severity: "medio",
+                description: "Sensación de movimiento"
+            },
+            {
+                name: "Llagas en el cuero cabelludo",
+                severity: "poco",
+                description: "Por rascarse"
             }
         ]
     }
 ];
+function normalizeDiseaseName(name) {
+    return name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Remover acentos
+    .trim();
+}
+function getAIModelName(diseaseName) {
+    return diseaseName;
+}
 const severityToNumber = (severity)=>{
     const mapping = {
         poco: 3,
@@ -581,15 +717,20 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/navigation.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/components/ui/card.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/components/ui/button.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$left$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowLeft$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/arrow-left.js [app-client] (ecmascript) <export default as ArrowLeft>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$alert$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__AlertCircle$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/circle-alert.js [app-client] (ecmascript) <export default as AlertCircle>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$info$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Info$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/info.js [app-client] (ecmascript) <export default as Info>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$brain$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Brain$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/brain.js [app-client] (ecmascript) <export default as Brain>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trending$2d$up$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__TrendingUp$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/trending-up.js [app-client] (ecmascript) <export default as TrendingUp>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/loader-circle.js [app-client] (ecmascript) <export default as Loader2>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$diseases$2d$data$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/lib/diseases-data.ts [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
+;
 ;
 ;
 ;
@@ -600,9 +741,60 @@ function EnfermedadDetalle() {
     const params = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useParams"])();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const diseaseId = params.id;
+    const [aiData, setAiData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
+    const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     // Buscar la enfermedad por nombre (convertido desde URL)
     const diseaseName = decodeURIComponent(diseaseId);
     const disease = __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$diseases$2d$data$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["diseasesDatabase"].find((d)=>d.name === diseaseName);
+    // Función para obtener análisis del modelo de AI
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "EnfermedadDetalle.useEffect": ()=>{
+            if (!disease) return;
+            const fetchAIData = {
+                "EnfermedadDetalle.useEffect.fetchAIData": async ()=>{
+                    setLoading(true);
+                    setError(null);
+                    try {
+                        // Convertir síntomas de la enfermedad a formato para el modelo
+                        const symptomsDict = {};
+                        disease.symptoms.forEach({
+                            "EnfermedadDetalle.useEffect.fetchAIData": (symptom)=>{
+                                symptomsDict[symptom.name] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$diseases$2d$data$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["severityToNumber"])(symptom.severity);
+                            }
+                        }["EnfermedadDetalle.useEffect.fetchAIData"]);
+                        const response = await fetch("/api/diagnostico", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                sintomas: symptomsDict
+                            })
+                        });
+                        if (!response.ok) {
+                            throw new Error(`Error del servidor: ${response.status}`);
+                        }
+                        const data = await response.json();
+                        setAiData(data);
+                    } catch (err) {
+                        console.error("Error obteniendo datos del AI:", err);
+                        setError("No se pudo obtener el análisis del modelo de AI");
+                    } finally{
+                        setLoading(false);
+                    }
+                }
+            }["EnfermedadDetalle.useEffect.fetchAIData"];
+            fetchAIData();
+        }
+    }["EnfermedadDetalle.useEffect"], [
+        disease
+    ]);
+    // Buscar la enfermedad en las predicciones (ahora todas las enfermedades coinciden exactamente)
+    const diseaseMatch = aiData?.predictions.find((p)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$diseases$2d$data$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["normalizeDiseaseName"])(p.disease) === (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$diseases$2d$data$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["normalizeDiseaseName"])(diseaseName)) || null;
+    const diseaseConfidence = diseaseMatch?.confidence || null;
+    // Ordenar predicciones por confianza
+    const topPredictions = aiData?.predictions.slice(0, 5).sort((a, b)=>b.confidence - a.confidence) || [];
     if (!disease) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "min-h-screen bg-black text-white p-6 flex items-center justify-center",
@@ -613,7 +805,7 @@ function EnfermedadDetalle() {
                         className: "w-12 h-12 text-red-500 mx-auto mb-4"
                     }, void 0, false, {
                         fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                        lineNumber: 22,
+                        lineNumber: 87,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -621,7 +813,7 @@ function EnfermedadDetalle() {
                         children: "Enfermedad no encontrada"
                     }, void 0, false, {
                         fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                        lineNumber: 23,
+                        lineNumber: 88,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -629,7 +821,7 @@ function EnfermedadDetalle() {
                         children: "No se pudo encontrar información sobre esta enfermedad."
                     }, void 0, false, {
                         fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                        lineNumber: 24,
+                        lineNumber: 89,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -638,18 +830,18 @@ function EnfermedadDetalle() {
                         children: "Volver"
                     }, void 0, false, {
                         fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                        lineNumber: 25,
+                        lineNumber: 90,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                lineNumber: 21,
+                lineNumber: 86,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-            lineNumber: 20,
+            lineNumber: 85,
             columnNumber: 5
         }, this);
     }
@@ -667,14 +859,14 @@ function EnfermedadDetalle() {
                             className: "w-4 h-4 mr-2"
                         }, void 0, false, {
                             fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                            lineNumber: 45,
+                            lineNumber: 110,
                             columnNumber: 9
                         }, this),
                         "Volver al diagnóstico"
                     ]
                 }, void 0, true, {
                     fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                    lineNumber: 40,
+                    lineNumber: 105,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -685,7 +877,7 @@ function EnfermedadDetalle() {
                             children: disease.name
                         }, void 0, false, {
                             fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                            lineNumber: 51,
+                            lineNumber: 116,
                             columnNumber: 9
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -695,26 +887,343 @@ function EnfermedadDetalle() {
                                     className: "w-5 h-5"
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                                    lineNumber: 53,
+                                    lineNumber: 118,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     children: "Información detallada sobre la enfermedad"
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                                    lineNumber: 54,
+                                    lineNumber: 119,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                            lineNumber: 52,
+                            lineNumber: 117,
                             columnNumber: 9
+                        }, this),
+                        loading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
+                            className: "bg-neutral-900/80 border-neutral-700 p-4 mt-4 backdrop-blur-sm",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center gap-3 text-neutral-300",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
+                                        className: "w-5 h-5 animate-spin"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                        lineNumber: 126,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        children: "Analizando con el modelo de AI..."
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                        lineNumber: 127,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                lineNumber: 125,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                            lineNumber: 124,
+                            columnNumber: 11
+                        }, this),
+                        error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
+                            className: "bg-red-900/20 border-red-700 p-4 mt-4 backdrop-blur-sm",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center gap-2 text-red-300",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$alert$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__AlertCircle$3e$__["AlertCircle"], {
+                                        className: "w-5 h-5"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                        lineNumber: 135,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        children: error
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                        lineNumber: 136,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                lineNumber: 134,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                            lineNumber: 133,
+                            columnNumber: 11
+                        }, this),
+                        aiData && !loading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
+                            className: "bg-gradient-to-r from-purple-900/30 to-blue-900/30 border-purple-700 p-6 mt-4 backdrop-blur-sm",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-start gap-3 mb-4",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$brain$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Brain$3e$__["Brain"], {
+                                        className: "w-6 h-6 text-purple-400 flex-shrink-0 mt-1"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                        lineNumber: 144,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex-1",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                className: "text-xl font-semibold mb-2 flex items-center gap-2",
+                                                children: [
+                                                    "Análisis del Modelo de AI",
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trending$2d$up$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__TrendingUp$3e$__["TrendingUp"], {
+                                                        className: "w-5 h-5 text-purple-400"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                        lineNumber: 148,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                lineNumber: 146,
+                                                columnNumber: 17
+                                            }, this),
+                                            diseaseConfidence !== null ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "mb-4",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center gap-3 mb-2",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "text-neutral-300",
+                                                                children: "Nivel de confianza para esta enfermedad:"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                                lineNumber: 154,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: `text-2xl font-bold ${diseaseConfidence >= 70 ? 'text-green-400' : diseaseConfidence >= 50 ? 'text-yellow-400' : 'text-orange-400'}`,
+                                                                children: [
+                                                                    diseaseConfidence.toFixed(1),
+                                                                    "%"
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                                lineNumber: 155,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                        lineNumber: 153,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "w-full bg-neutral-700 rounded-full h-3 overflow-hidden",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "h-full transition-all bg-gradient-to-r from-purple-500 to-blue-500",
+                                                            style: {
+                                                                width: `${diseaseConfidence}%`
+                                                            }
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                            lineNumber: 164,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                        lineNumber: 163,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                lineNumber: 152,
+                                                columnNumber: 19
+                                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "mb-4",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "p-3 bg-yellow-900/20 border border-yellow-700/50 rounded-lg",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-yellow-200 text-sm mb-1",
+                                                            children: [
+                                                                "⚠️ ",
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                                    children: "Enfermedad no identificada directamente por el modelo"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                                    lineNumber: 174,
+                                                                    columnNumber: 28
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                            lineNumber: 173,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-neutral-300 text-xs",
+                                                            children: "El modelo procesó los síntomas pero no identificó esta enfermedad específica en las predicciones principales. Revisa las predicciones del modelo a continuación para ver enfermedades relacionadas."
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                            lineNumber: 176,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                    lineNumber: 172,
+                                                    columnNumber: 21
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                lineNumber: 171,
+                                                columnNumber: 19
+                                            }, this),
+                                            aiData.processed_symptoms && aiData.processed_symptoms.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "mb-4",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        className: "text-neutral-300 text-sm mb-2",
+                                                        children: [
+                                                            "Síntomas reconocidos por el modelo (",
+                                                            aiData.processed_symptoms.length,
+                                                            "):"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                        lineNumber: 186,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex flex-wrap gap-2",
+                                                        children: [
+                                                            aiData.processed_symptoms.slice(0, 8).map((symptom, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    className: "px-2 py-1 bg-purple-900/40 border border-purple-700 rounded text-xs text-purple-200",
+                                                                    children: symptom
+                                                                }, idx, false, {
+                                                                    fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                                    lineNumber: 191,
+                                                                    columnNumber: 25
+                                                                }, this)),
+                                                            aiData.processed_symptoms.length > 8 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "px-2 py-1 text-xs text-neutral-400",
+                                                                children: [
+                                                                    "+",
+                                                                    aiData.processed_symptoms.length - 8,
+                                                                    " más"
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                                lineNumber: 199,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                        lineNumber: 189,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                lineNumber: 185,
+                                                columnNumber: 19
+                                            }, this),
+                                            topPredictions.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        className: "text-neutral-300 text-sm mb-2",
+                                                        children: "Enfermedades predichas por el modelo:"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                        lineNumber: 209,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "space-y-2",
+                                                        children: topPredictions.map((pred, idx)=>{
+                                                            const isMatch = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$diseases$2d$data$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["normalizeDiseaseName"])(pred.disease) === (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$diseases$2d$data$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["normalizeDiseaseName"])(diseaseName);
+                                                            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: `flex justify-between items-center p-2 rounded ${isMatch ? 'bg-purple-900/50 border border-purple-600' : 'bg-neutral-800/50'}`,
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "text-sm text-neutral-200",
+                                                                        children: [
+                                                                            pred.disease,
+                                                                            isMatch && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "ml-2 text-xs text-purple-400",
+                                                                                children: "← Coincide"
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                                                lineNumber: 225,
+                                                                                columnNumber: 33
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                                        lineNumber: 222,
+                                                                        columnNumber: 29
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "text-sm font-semibold text-purple-300",
+                                                                        children: [
+                                                                            pred.confidence.toFixed(1),
+                                                                            "%"
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                                        lineNumber: 228,
+                                                                        columnNumber: 29
+                                                                    }, this)
+                                                                ]
+                                                            }, idx, true, {
+                                                                fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                                lineNumber: 214,
+                                                                columnNumber: 27
+                                                            }, this);
+                                                        })
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                        lineNumber: 210,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                                lineNumber: 208,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                        lineNumber: 145,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                lineNumber: 143,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                            lineNumber: 142,
+                            columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                    lineNumber: 50,
+                    lineNumber: 115,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -727,14 +1236,14 @@ function EnfermedadDetalle() {
                                     className: "w-6 h-6"
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                                    lineNumber: 61,
+                                    lineNumber: 246,
                                     columnNumber: 13
                                 }, this),
                                 "Síntomas Principales"
                             ]
                         }, void 0, true, {
                             fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                            lineNumber: 60,
+                            lineNumber: 245,
                             columnNumber: 9
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -752,7 +1261,7 @@ function EnfermedadDetalle() {
                                                     children: symptom.name
                                                 }, void 0, false, {
                                                     fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                                                    lineNumber: 77,
+                                                    lineNumber: 262,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -764,13 +1273,13 @@ function EnfermedadDetalle() {
                                                     children: symptom.severity
                                                 }, void 0, false, {
                                                     fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                                                    lineNumber: 78,
+                                                    lineNumber: 263,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                                            lineNumber: 76,
+                                            lineNumber: 261,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -783,30 +1292,30 @@ function EnfermedadDetalle() {
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                                                lineNumber: 89,
+                                                lineNumber: 274,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                                            lineNumber: 88,
+                                            lineNumber: 273,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, index, true, {
                                     fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                                    lineNumber: 72,
+                                    lineNumber: 257,
                                     columnNumber: 17
                                 }, this);
                             })
                         }, void 0, false, {
                             fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                            lineNumber: 64,
+                            lineNumber: 249,
                             columnNumber: 9
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                    lineNumber: 59,
+                    lineNumber: 244,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -817,7 +1326,7 @@ function EnfermedadDetalle() {
                             children: "Información Adicional"
                         }, void 0, false, {
                             fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                            lineNumber: 105,
+                            lineNumber: 290,
                             columnNumber: 9
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -827,10 +1336,33 @@ function EnfermedadDetalle() {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                             className: "font-semibold text-white mb-2",
+                                            children: "Categoría:"
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                            lineNumber: 293,
+                                            columnNumber: 13
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            children: disease.category
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                            lineNumber: 294,
+                                            columnNumber: 13
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                    lineNumber: 292,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                            className: "font-semibold text-white mb-2",
                                             children: "Total de síntomas:"
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                                            lineNumber: 108,
+                                            lineNumber: 298,
                                             columnNumber: 13
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -840,14 +1372,38 @@ function EnfermedadDetalle() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                                            lineNumber: 109,
+                                            lineNumber: 299,
                                             columnNumber: 13
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                                    lineNumber: 107,
+                                    lineNumber: 297,
                                     columnNumber: 13
+                                }, this),
+                                aiData && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                            className: "font-semibold text-white mb-2",
+                                            children: "Análisis del modelo:"
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                            lineNumber: 304,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-sm",
+                                            children: diseaseConfidence !== null ? `El modelo de AI identificó esta enfermedad con un ${diseaseConfidence.toFixed(1)}% de confianza basado en los síntomas proporcionados.` : `El modelo procesó ${aiData.total_symptoms} síntomas para generar predicciones.`
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                            lineNumber: 305,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
+                                    lineNumber: 303,
+                                    columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "mt-6 p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-lg",
@@ -859,46 +1415,46 @@ function EnfermedadDetalle() {
                                                 children: "Importante:"
                                             }, void 0, false, {
                                                 fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                                                lineNumber: 114,
+                                                lineNumber: 315,
                                                 columnNumber: 20
                                             }, this),
-                                            " Esta información es solo de carácter informativo. Siempre consulta con un profesional médico para un diagnóstico preciso y tratamiento adecuado."
+                                            " Esta información es solo de carácter informativo. Siempre consulta con un profesional médico para un diagnóstico preciso y tratamiento adecuado. El análisis del modelo de AI es una herramienta de apoyo y no reemplaza la evaluación médica profesional."
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                                        lineNumber: 113,
+                                        lineNumber: 314,
                                         columnNumber: 13
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                                    lineNumber: 112,
+                                    lineNumber: 313,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                            lineNumber: 106,
+                            lineNumber: 291,
                             columnNumber: 9
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-                    lineNumber: 104,
+                    lineNumber: 289,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-            lineNumber: 38,
+            lineNumber: 103,
             columnNumber: 5
         }, this)
     }, void 0, false, {
         fileName: "[project]/frontend/app/enfermedad/[id]/page.tsx",
-        lineNumber: 37,
+        lineNumber: 102,
         columnNumber: 5
     }, this);
 }
-_s(EnfermedadDetalle, "6tjUaGqXbeKCUQo6mHB9P8cv1X0=", false, function() {
+_s(EnfermedadDetalle, "/+AonZZLAKbH1TbUPQydKMQyb8c=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useParams"],
         __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]

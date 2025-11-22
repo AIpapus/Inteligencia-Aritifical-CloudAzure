@@ -523,8 +523,12 @@ Slider.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f
 __turbopack_context__.s([
     "diseasesDatabase",
     ()=>diseasesDatabase,
+    "getAIModelName",
+    ()=>getAIModelName,
     "getSeverityColor",
     ()=>getSeverityColor,
+    "normalizeDiseaseName",
+    ()=>normalizeDiseaseName,
     "numberToSeverity",
     ()=>numberToSeverity,
     "severityToNumber",
@@ -532,7 +536,33 @@ __turbopack_context__.s([
 ]);
 const diseasesDatabase = [
     {
-        name: "Gripe",
+        name: "Sarampión",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Erupción",
+                severity: "demasiado",
+                description: "Erupción roja en el cuerpo"
+            },
+            {
+                name: "Tos",
+                severity: "medio",
+                description: "Síntoma respiratorio"
+            },
+            {
+                name: "Fiebre alta",
+                severity: "considerable",
+                description: "Elevación de temperatura"
+            },
+            {
+                name: "Pequeñas manchas blancas en las mejillas",
+                severity: "medio",
+                description: "Manchas de Koplik"
+            }
+        ]
+    },
+    {
+        name: "Resfriado común",
         category: "Enfermedades infecciosas",
         symptoms: [
             {
@@ -543,331 +573,437 @@ const diseasesDatabase = [
             {
                 name: "Dolor de cabeza",
                 severity: "poco",
-                description: "Cefalea leve por inflamación"
+                description: "Cefalea leve"
             },
             {
                 name: "Fatiga",
                 severity: "considerable",
                 description: "Cansancio general"
-            }
-        ]
-    },
-    {
-        name: "COVID-19",
-        category: "Enfermedades infecciosas",
-        symptoms: [
-            {
-                name: "Fiebre",
-                severity: "considerable",
-                description: "Elevación considerable de temperatura"
             },
             {
                 name: "Tos seca",
                 severity: "medio",
-                description: "Irritación respiratoria"
+                description: "Tos irritativa"
             },
             {
-                name: "Pérdida de olfato",
-                severity: "demasiado",
-                description: "Alteración neurológica"
-            }
-        ]
-    },
-    {
-        name: "Tuberculosis",
-        category: "Enfermedades infecciosas",
-        symptoms: [
-            {
-                name: "Tos persistente",
-                severity: "demasiado",
-                description: "Tos crónica con flema"
-            },
-            {
-                name: "Sudores nocturnos",
+                name: "Secreción nasal",
                 severity: "medio",
-                description: "Síntoma sistémico"
+                description: "Nariz tapada o secreción"
             },
             {
-                name: "Pérdida de peso",
+                name: "Estornudos",
                 severity: "poco",
-                description: "Pérdida de peso gradual"
+                description: "Estornudos frecuentes"
             }
         ]
     },
     {
-        name: "Dengue",
+        name: "Conjuntivitis",
         category: "Enfermedades infecciosas",
         symptoms: [
             {
-                name: "Dolor articular",
-                severity: "considerable",
-                description: "Dolor intenso en articulaciones"
-            },
-            {
-                name: "Dolor detrás de los ojos",
+                name: "Ojo rosado",
                 severity: "medio",
-                description: "Característico del dengue"
+                description: "Inflamación del ojo"
             },
             {
-                name: "Sarpullido",
+                name: "Ojos rojos",
+                severity: "considerable",
+                description: "Enrojecimiento del ojo"
+            },
+            {
+                name: "Secreción ocular",
+                severity: "medio",
+                description: "Secreción en los ojos"
+            },
+            {
+                name: "Ojos llorosos",
                 severity: "poco",
-                description: "Lesiones cutáneas leves"
-            }
-        ]
-    },
-    {
-        name: "Cólera",
-        category: "Enfermedades infecciosas",
-        symptoms: [
-            {
-                name: "Diarrea acuosa",
-                severity: "demasiado",
-                description: "Pérdida rápida de líquidos"
+                description: "Lagrimeo excesivo"
             },
             {
-                name: "Calambres musculares",
-                severity: "medio",
-                description: "Contracciones musculares"
-            },
-            {
-                name: "Deshidratación",
-                severity: "considerable",
-                description: "Pérdida severa de líquidos"
-            }
-        ]
-    },
-    {
-        name: "Sarampión",
-        category: "Enfermedades infecciosas",
-        symptoms: [
-            {
-                name: "Erupción cutánea",
-                severity: "demasiado",
-                description: "Lesiones rojas en piel"
-            },
-            {
-                name: "Tos",
+                name: "Picazón",
                 severity: "poco",
-                description: "Síntoma respiratorio"
-            },
-            {
-                name: "Manchas de Koplik",
-                severity: "medio",
-                description: "Lesiones en mucosa oral"
+                description: "Sensación de picazón"
             }
         ]
     },
     {
-        name: "Malaria",
+        name: "Shigellosis (Disentería Bacilar)",
         category: "Enfermedades infecciosas",
         symptoms: [
             {
-                name: "Escalofríos",
-                severity: "considerable",
-                description: "Escalofríos intensos"
-            },
-            {
-                name: "Sudoración excesiva",
-                severity: "medio",
-                description: "Tras episodios febriles"
+                name: "Diarrea",
+                severity: "demasiado",
+                description: "Diarrea acuosa o con sangre"
             },
             {
                 name: "Dolor abdominal",
-                severity: "poco",
-                description: "Dolor abdominal leve"
-            }
-        ]
-    },
-    {
-        name: "Hepatitis A",
-        category: "Enfermedades infecciosas",
-        symptoms: [
+                severity: "considerable",
+                description: "Dolor o calambres abdominales"
+            },
             {
-                name: "Ictericia",
+                name: "Fiebre",
+                severity: "medio",
+                description: "Elevación de temperatura"
+            },
+            {
+                name: "Heces con sangre",
                 severity: "demasiado",
-                description: "Color amarillo en piel y ojos"
+                description: "Sangre en las heces"
             },
             {
                 name: "Náuseas",
                 severity: "medio",
-                description: "Alteración digestiva"
-            },
-            {
-                name: "Orina oscura",
-                severity: "poco",
-                description: "Orina de color oscuro"
+                description: "Sensación de náusea"
             }
         ]
     },
     {
-        name: "Fiebre Tifoidea",
+        name: "Tos ferina (Pertussis)",
         category: "Enfermedades infecciosas",
         symptoms: [
+            {
+                name: "Ataques de tos severos",
+                severity: "demasiado",
+                description: "Tos paroxística"
+            },
+            {
+                name: "Tos ferina",
+                severity: "considerable",
+                description: "Tos característica"
+            },
+            {
+                name: "Fiebre",
+                severity: "medio",
+                description: "Elevación moderada de temperatura"
+            },
+            {
+                name: "Vómitos después de toser",
+                severity: "medio",
+                description: "Vómitos post-tos"
+            },
+            {
+                name: "Secreción nasal",
+                severity: "poco",
+                description: "Nariz tapada"
+            }
+        ]
+    },
+    {
+        name: "Infección por Norovirus",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Diarrea",
+                severity: "considerable",
+                description: "Diarrea acuosa"
+            },
+            {
+                name: "Vómitos",
+                severity: "medio",
+                description: "Náuseas o vómitos"
+            },
             {
                 name: "Dolor abdominal",
-                severity: "considerable",
-                description: "Inflamación intestinal"
-            },
-            {
-                name: "Estreñimiento",
-                severity: "poco",
-                description: "Alteración digestiva"
-            },
-            {
-                name: "Fiebre prolongada",
-                severity: "demasiado",
-                description: "Persistente por infección"
-            }
-        ]
-    },
-    {
-        name: "VIH (fase aguda)",
-        category: "Enfermedades infecciosas",
-        symptoms: [
-            {
-                name: "Ganglios inflamados",
                 severity: "medio",
-                description: "Adenopatías"
+                description: "Dolor o calambres abdominales"
             },
             {
-                name: "Dolor muscular",
+                name: "Fiebre leve",
                 severity: "poco",
-                description: "Síntoma inespecífico"
+                description: "Fiebre baja"
             },
             {
-                name: "Sudor nocturno",
-                severity: "considerable",
-                description: "Común en fase inicial"
-            }
-        ]
-    },
-    {
-        name: "Tétanos",
-        category: "Enfermedades infecciosas",
-        symptoms: [
-            {
-                name: "Rigidez muscular",
-                severity: "demasiado",
-                description: "Contracciones dolorosas"
-            },
-            {
-                name: "Espasmos",
-                severity: "considerable",
-                description: "Movimientos involuntarios"
-            },
-            {
-                name: "Dificultad para tragar",
-                severity: "medio",
-                description: "Dificultad para tragar"
-            }
-        ]
-    },
-    {
-        name: "Zika",
-        category: "Enfermedades infecciosas",
-        symptoms: [
-            {
-                name: "Conjuntivitis",
+                name: "Dolores musculares",
                 severity: "poco",
-                description: "Inflamación ocular"
-            },
-            {
-                name: "Dolor muscular",
-                severity: "medio",
-                description: "Dolor generalizado"
-            },
-            {
-                name: "Erupción cutánea",
-                severity: "considerable",
-                description: "Lesiones en piel"
+                description: "Malestar general"
             }
         ]
     },
     {
-        name: "Ébola",
+        name: "Roséola",
         category: "Enfermedades infecciosas",
         symptoms: [
-            {
-                name: "Hemorragias",
-                severity: "demasiado",
-                description: "Sangrado interno y externo"
-            },
             {
                 name: "Fiebre alta",
                 severity: "demasiado",
+                description: "Fiebre alta repentina"
+            },
+            {
+                name: "Erupción",
+                severity: "medio",
+                description: "Erupción después de la fiebre"
+            },
+            {
+                name: "Ganglios linfáticos inflamados",
+                severity: "poco",
+                description: "Ganglios inflamados"
+            },
+            {
+                name: "Irritabilidad",
+                severity: "medio",
+                description: "Irritabilidad en niños"
+            }
+        ]
+    },
+    {
+        name: "Rubéola",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Erupción roja en el cuerpo",
+                severity: "considerable",
+                description: "Erupción característica"
+            },
+            {
+                name: "Fiebre",
+                severity: "medio",
+                description: "Fiebre leve"
+            },
+            {
+                name: "Ganglios linfáticos inflamados",
+                severity: "medio",
+                description: "Ganglios inflamados"
+            },
+            {
+                name: "Dolor en las articulaciones",
+                severity: "poco",
+                description: "Dolores articulares"
+            }
+        ]
+    },
+    {
+        name: "Paperas",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Glándulas salivales inflamadas y dolorosas",
+                severity: "demasiado",
+                description: "Hinchazón de las glándulas parótidas"
+            },
+            {
+                name: "Fiebre",
+                severity: "medio",
+                description: "Elevación de temperatura"
+            },
+            {
+                name: "Dolor al masticar o tragar",
+                severity: "considerable",
+                description: "Dificultad al tragar"
+            },
+            {
+                name: "Dolores musculares",
+                severity: "poco",
+                description: "Malestar general"
+            },
+            {
+                name: "Cansancio",
+                severity: "medio",
+                description: "Fatiga"
+            }
+        ]
+    },
+    {
+        name: "Escarlatina",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Garganta roja y dolorida con parches",
+                severity: "demasiado",
+                description: "Dolor de garganta intenso"
+            },
+            {
+                name: "Fiebre alta",
+                severity: "considerable",
                 description: "Elevación extrema de temperatura"
             },
             {
-                name: "Dolor abdominal",
-                severity: "considerable",
-                description: "Dolor abdominal severo"
-            }
-        ]
-    },
-    {
-        name: "Rabia",
-        category: "Enfermedades infecciosas",
-        symptoms: [
-            {
-                name: "Hidrofobia",
-                severity: "demasiado",
-                description: "Miedo al agua por espasmos"
-            },
-            {
-                name: "Agitación",
-                severity: "considerable",
-                description: "Alteración neurológica"
-            },
-            {
-                name: "Salivación excesiva",
+                name: "Erupción",
                 severity: "medio",
-                description: "Hipersalivación"
-            }
-        ]
-    },
-    {
-        name: "Leptospirosis",
-        category: "Enfermedades infecciosas",
-        symptoms: [
-            {
-                name: "Dolor muscular",
-                severity: "considerable",
-                description: "Dolor intenso"
+                description: "Erupción roja característica"
             },
             {
-                name: "Ictericia",
+                name: "Lengua de fresa",
                 severity: "medio",
-                description: "Afectación hepática"
-            },
-            {
-                name: "Insuficiencia renal",
-                severity: "demasiado",
-                description: "Daño renal severo"
-            }
-        ]
-    },
-    {
-        name: "Meningitis",
-        category: "Enfermedades infecciosas",
-        symptoms: [
-            {
-                name: "Rigidez de cuello",
-                severity: "demasiado",
-                description: "Signo clásico"
-            },
-            {
-                name: "Fotofobia",
-                severity: "considerable",
-                description: "Sensibilidad a la luz"
+                description: "Lengua característica"
             },
             {
                 name: "Dolor de cabeza",
+                severity: "poco",
+                description: "Cefalea"
+            }
+        ]
+    },
+    {
+        name: "Faringitis estreptocócica",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Dolor de garganta",
+                severity: "demasiado",
+                description: "Garganta roja y dolorida"
+            },
+            {
+                name: "Fiebre",
+                severity: "considerable",
+                description: "Elevación de temperatura"
+            },
+            {
+                name: "Amígdalas rojas e inflamadas",
                 severity: "medio",
-                description: "Cefalea intensa"
+                description: "Amígdalas inflamadas"
+            },
+            {
+                name: "Ganglios linfáticos inflamados",
+                severity: "medio",
+                description: "Ganglios inflamados"
+            },
+            {
+                name: "Dolor de cabeza",
+                severity: "poco",
+                description: "Cefalea"
+            }
+        ]
+    },
+    {
+        name: "Impétigo",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Llagas agrupadas",
+                severity: "considerable",
+                description: "Lesiones en la piel"
+            },
+            {
+                name: "Costra amarilla",
+                severity: "medio",
+                description: "Costras características"
+            },
+            {
+                name: "Picazón",
+                severity: "medio",
+                description: "Picazón en las lesiones"
+            },
+            {
+                name: "Enrojecimiento",
+                severity: "poco",
+                description: "Zonas enrojecidas"
+            }
+        ]
+    },
+    {
+        name: "Candidiasis oral",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Parches blancos en las amígdalas",
+                severity: "medio",
+                description: "Manchas blancas"
+            },
+            {
+                name: "Dolor o ardor en la boca",
+                severity: "considerable",
+                description: "Malestar bucal"
+            },
+            {
+                name: "Sensación de algodón en la boca",
+                severity: "poco",
+                description: "Sensación característica"
+            },
+            {
+                name: "Pérdida del gusto",
+                severity: "poco",
+                description: "Alteración del gusto"
+            }
+        ]
+    },
+    {
+        name: "Enfermedad de manos, pies y boca",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Erupción en manos y pies",
+                severity: "considerable",
+                description: "Erupción característica"
+            },
+            {
+                name: "Llagas en la boca",
+                severity: "medio",
+                description: "Lesiones bucales"
+            },
+            {
+                name: "Fiebre",
+                severity: "medio",
+                description: "Elevación de temperatura"
+            },
+            {
+                name: "Dolor de garganta",
+                severity: "poco",
+                description: "Malestar de garganta"
+            }
+        ]
+    },
+    {
+        name: "Quinta enfermedad",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Erupción en la cara",
+                severity: "considerable",
+                description: "Mejillas enrojecidas"
+            },
+            {
+                name: "Fiebre",
+                severity: "medio",
+                description: "Fiebre leve"
+            },
+            {
+                name: "Dolores corporales",
+                severity: "poco",
+                description: "Malestar general"
+            },
+            {
+                name: "Dolor de cabeza",
+                severity: "poco",
+                description: "Cefalea leve"
+            }
+        ]
+    },
+    {
+        name: "Infestación de piojos",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Piojos visibles en el cuero cabelludo",
+                severity: "demasiado",
+                description: "Presencia de piojos"
+            },
+            {
+                name: "Picazón en cuero cabelludo/cuello/orejas",
+                severity: "considerable",
+                description: "Picazón intensa"
+            },
+            {
+                name: "Cosquilleo en el cabello",
+                severity: "medio",
+                description: "Sensación de movimiento"
+            },
+            {
+                name: "Llagas en el cuero cabelludo",
+                severity: "poco",
+                description: "Por rascarse"
             }
         ]
     }
 ];
+function normalizeDiseaseName(name) {
+    return name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Remover acentos
+    .trim();
+}
+function getAIModelName(diseaseName) {
+    return diseaseName;
+}
 const severityToNumber = (severity)=>{
     const mapping = {
         poco: 3,

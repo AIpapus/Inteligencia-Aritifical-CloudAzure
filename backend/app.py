@@ -6,8 +6,8 @@ from config import (
     FLASK_HOST, FLASK_PORT, FLASK_DEBUG,
     TOP_K_PREDICTIONS, MIN_CONFIDENCE, CORS_ORIGINS
 )
-from model_loader import load_model, predict, get_model_info, initialize
-from symptom_processor import process_symptoms
+from model_loader import load_model, predict, get_model_info, initialize as initialize_model
+from symptom_processor import process_symptoms, initialize as initialize_symptom_processor
 
 # Configurar logging
 logging.basicConfig(
@@ -23,10 +23,11 @@ app = Flask(__name__)
 cors_origins = CORS_ORIGINS.split(",") if "," in CORS_ORIGINS else [CORS_ORIGINS]
 CORS(app, resources={r"/api/*": {"origins": cors_origins}})
 
-# Inicializar modelo al iniciar el servidor
+# Inicializar modelo y procesador de síntomas al iniciar el servidor
 logger.info("Inicializando servidor...")
 try:
-    initialize()
+    initialize_model()
+    initialize_symptom_processor()
     logger.info("Servidor inicializado correctamente")
 except Exception as e:
     logger.error(f"Error al inicializar: {str(e)}")
@@ -169,4 +170,5 @@ def internal_error(error):
 if __name__ == '__main__':
     logger.info(f"Iniciando servidor en http://{FLASK_HOST}:{FLASK_PORT}")
     app.run(host=FLASK_HOST, port=FLASK_PORT, debug=FLASK_DEBUG)
+
 
