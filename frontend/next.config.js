@@ -1,12 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Genera un sitio estático que Azure puede servir
-  distDir: 'build',  // Cambia .next a build (lo que espera el workflow)
+  // CAMBIO 1: Usa 'standalone' en lugar de 'export'.
+  // Esto permite que tus APIs funcionen y el servidor arranque rápido.
+  output: 'standalone',
+
+  // CAMBIO 2: Comenta o borra esta línea.
+  // Deja que Next.js use su carpeta por defecto (.next) para evitar errores de ruta en Azure.
+  // distDir: 'build',
+
   images: {
-    unoptimized: true, // Necesario para export estático
+    unoptimized: true,
   },
-  // Si usas rutas dinámicas, configúralas aquí
-  // trailingSlash: true, // Opcional: añade / al final de las URLs
 }
 
 module.exports = nextConfig
