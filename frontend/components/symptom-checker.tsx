@@ -62,7 +62,7 @@ export function SymptomChecker({ onBack }: SymptomCheckerProps) {
 const calculateDiagnosis = async () => {
   try {
     // Llamar al backend para obtener predicciones del modelo de AI
-    const res = await fetch("/api/diagnostico", {
+    const res = await fetch("https://backend-medical-ai.azurewebsites.net/api/diagnostico", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ sintomas: symptomSelections }),
