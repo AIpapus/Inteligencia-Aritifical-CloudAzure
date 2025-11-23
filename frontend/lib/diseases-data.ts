@@ -16,6 +16,32 @@ export interface Disease {
   moreInfoUrl?: string        // URL externa para más información
 }
 
+// ============================================
+// CONFIGURACIÓN DE URLs PARA IMÁGENES
+// ============================================
+// En desarrollo: http://localhost:5000/imagenes
+// En producción: https://papupruebas.blob.core.windows.net/enfermedades
+const BLOB_STORAGE_URL = process.env.NEXT_PUBLIC_BLOB_STORAGE_URL || "http://localhost:5000/imagenes"
+
+/**
+ * Obtiene la URL completa de una imagen
+ */
+export function getImageUrl(filename: string): string {
+  // Si ya es una URL completa, devolverla tal cual
+  if (filename.startsWith('http')) {
+    return filename
+  }
+  // Si tiene path, extraer solo el nombre del archivo
+  const cleanFilename = filename.split('/').pop() || filename
+  return `${BLOB_STORAGE_URL}/${encodeURIComponent(cleanFilename)}`
+}
+
+// ============================================
+// BASE DE DATOS DE ENFERMEDADES
+// ============================================
+// Nota: Las imágenes ahora son solo nombres de archivo
+
+
 // Base de datos SOLO con enfermedades que están en el modelo de AI (class_names.json)
 // Esto garantiza que siempre haya coincidencia exacta entre frontend y modelo
 export const diseasesDatabase: Disease[] = [
