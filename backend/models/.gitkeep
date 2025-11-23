@@ -1,0 +1,32 @@
+# Esta carpeta contiene los archivos del modelo entrenado
+
+## Para Desarrollo Local:
+
+Coloca aquí los siguientes archivos descargados de Google Colab:
+
+1. health_nn_model.keras - Modelo TensorFlow entrenado
+2. symptom_vocab.json - Vocabulario de síntomas
+3. class_names.json - Nombres de las enfermedades/clases
+
+## Para Producción (Azure):
+
+Los archivos del modelo se almacenan en **Azure Blob Storage**, NO en el código del App Service.
+
+### Configuración:
+- `USE_BLOB_STORAGE=true` - Habilita carga desde Blob Storage
+- `AZURE_STORAGE_ACCOUNT_NAME` - Nombre de tu Storage Account
+- `AZURE_STORAGE_ACCOUNT_KEY` - Clave de acceso
+- `AZURE_STORAGE_CONTAINER_NAME=models` - Container en Blob Storage
+
+### Subir modelos a Blob Storage:
+```bash
+python deploy_to_azure.py
+```
+
+O usar Azure CLI:
+```bash
+az storage blob upload --account-name <account> --container-name models --name health_nn_model.keras --file models/health_nn_model.keras
+```
+
+**Nota:** Estos archivos NO deben subirse a Git (agregados al .gitignore).
+

@@ -1,0 +1,136 @@
+[00:00:01.216] Server  LOG      ✓ Ready in 790ms
+[00:00:03.933] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:03.962] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:04.003] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:04.094] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:04.095] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/ENFERMEDADES%20INTELIGENCIA%20ARTIFICIAL/Resfriado%20com%C3%BAn-2.jpg","route":"/ENFERMEDADES%20INTELIGENCIA%20ARTIFICIAL/Resfriado%20com%C3%BAn-2.jpg"}
+[00:00:04.095] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ENFERMEDADES%20INTELIGENCIA%20ARTIFICIAL/Resfriado%20com%C3%BAn-2.jpg color: rgb(120, 120, 120) color: inherit {"dp":"/ENFERMEDADES%20INTELIGENCIA%20ARTIFICIAL/Resfriado%20com%C3%BAn-2.jpg","o":"http://localhost:3000/ENFERMEDADES%20INTELIGENCIA%20ARTIFICIAL/Resfriado%20com%C3%BAn-2.jpg","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763851106009}
+[00:00:04.140] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:04.140] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:04.140] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763851106051}
+[00:00:04.201] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:04.201] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:04.201] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763851106114}
+[00:00:04.232] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:04.991] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:04.991] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:04.991] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763851106316}
+[00:00:13.564] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Resfriado%20com%C3%BAn color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Resfriado%20com%C3%BAn","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763851115437}
+[00:04:00.476] Server  LOG      ✓ Compiled in 51ms
+[00:04:04.541] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:04.739] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:04:04.739] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/enfermedad/Resfriado%20com%C3%BAn","route":"/enfermedad/[id]"}
+[00:04:04.739] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Resfriado%20com%C3%BAn color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Resfriado%20com%C3%BAn","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763851346645}
+[00:04:24.593] Server  LOG      ✓ Compiled in 41ms
+[00:05:08.863] Server  LOG      ✓ Compiled in 34ms
+[00:05:15.641] Server  LOG      ✓ Compiled in 40ms
+[00:05:23.786] Server  LOG      ✓ Compiled in 35ms
+[00:26:56.681] Server  LOG      ✓ Compiled in 39ms
+[00:27:08.058] Server  LOG      ✓ Compiled in 100ms
+[00:27:16.568] Server  LOG      ✓ Compiled in 35ms
+[00:27:23.708] Server  LOG      ✓ Compiled in 32ms
+[00:27:48.132] Server  LOG      ✓ Compiled in 35ms
+[00:28:01.489] Server  LOG      ✓ Compiled in 32ms
+[00:29:51.391] Server  LOG      ✓ Compiled in 31ms
+[00:30:38.350] Server  LOG      ✓ Compiled in 35ms
+[00:31:09.057] Server  LOG      ✓ Compiled in 36ms
+[00:31:38.164] Server  LOG      ✓ Compiled in 36ms
+[00:32:49.760] Server  LOG      ✓ Compiled in 38ms
+[00:33:50.894] Server  LOG      ✓ Compiled in 34ms
+[00:34:11.091] Server  LOG      ✓ Compiled in 33ms
+[00:34:17.654] Server  LOG      ✓ Compiled in 35ms
+[00:34:43.678] Server  LOG      ✓ Compiled in 35ms
+[00:35:04.837] Server  LOG      ✓ Compiled in 37ms
+[00:35:13.608] Server  LOG      ✓ Compiled in 59ms
+[00:35:13.981] Browser ERROR   ./frontend/lib/diseases-data.ts:231:198
+Parsing ecmascript source code failed
+  229 |       { name: "Dolor de cabeza", severity: "poco", description: "Cefalea leve" },
+  230 |     ],
+> 231 |     description: "Infección viral común (causada por el parvovirus B19) que se presenta con síntomas leves parecidos a un resfriado y, posteriormente, una erupción característica en la cara ("mejillas abofeteadas") y un sarpullido en el cuerpo.",
+      |                                                                                                                                                                                                      ^^^^^^^^
+  232 |     treatment: "",
+  233 |     moreInfoUrl: "",
+  234 |   },
+
+Expected ',', got 'mejillas'
+
+Import traces:
+  Client Component Browser:
+    ./frontend/lib/diseases-data.ts [Client Component Browser]
+    ./frontend/components/symptom-checker.tsx [Client Component Browser]
+    ./frontend/app/page.tsx [Client Component Browser]
+    ./frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/lib/diseases-data.ts [Client Component SSR]
+    ./frontend/components/symptom-checker.tsx [Client Component SSR]
+    ./frontend/app/page.tsx [Client Component SSR]
+    ./frontend/app/page.tsx [Server Component]
+[00:35:13.981] Browser ERROR   ./frontend/lib/diseases-data.ts:231:198
+Parsing ecmascript source code failed
+  229 |       { name: "Dolor de cabeza", severity: "poco", description: "Cefalea leve" },
+  230 |     ],
+> 231 |     description: "Infección viral común (causada por el parvovirus B19) que se presenta con síntomas leves parecidos a un resfriado y, posteriormente, una erupción característica en la cara ("mejillas abofeteadas") y un sarpullido en el cuerpo.",
+      |                                                                                                                                                                                                      ^^^^^^^^
+  232 |     treatment: "",
+  233 |     moreInfoUrl: "",
+  234 |   },
+
+Expected ',', got 'mejillas'
+
+Import traces:
+  Client Component Browser:
+    ./frontend/lib/diseases-data.ts [Client Component Browser]
+    ./frontend/components/symptom-checker.tsx [Client Component Browser]
+    ./frontend/app/page.tsx [Client Component Browser]
+    ./frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/lib/diseases-data.ts [Client Component SSR]
+    ./frontend/components/symptom-checker.tsx [Client Component SSR]
+    ./frontend/app/page.tsx [Client Component SSR]
+    ./frontend/app/page.tsx [Server Component]
+[00:35:53.486] Server  LOG      ✓ Compiled in 32ms
+[00:36:20.451] Server  LOG      ✓ Compiled in 32ms
+[00:36:21.832] Server  LOG      ✓ Compiled in 36ms
+[00:36:28.484] Browser ERROR   ./frontend/lib/diseases-data.ts:231:198
+Parsing ecmascript source code failed
+  229 |       { name: "Dolor de cabeza", severity: "poco", description: "Cefalea leve" },
+  230 |     ],
+> 231 |     description: "Infección viral común (causada por el parvovirus B19) que se presenta con síntomas leves parecidos a un resfriado y, posteriormente, una erupción característica en la cara ("mejillas abofeteadas") y un sarpullido en el cuerpo.",
+      |                                                                                                                                                                                                      ^^^^^^^^
+  232 |     treatment: "",
+  233 |     moreInfoUrl: "",
+  234 |   },
+
+Expected ',', got 'mejillas'
+
+Import traces:
+  Client Component Browser:
+    ./frontend/lib/diseases-data.ts [Client Component Browser]
+    ./frontend/components/symptom-checker.tsx [Client Component Browser]
+    ./frontend/app/page.tsx [Client Component Browser]
+    ./frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/lib/diseases-data.ts [Client Component SSR]
+    ./frontend/components/symptom-checker.tsx [Client Component SSR]
+    ./frontend/app/page.tsx [Client Component SSR]
+    ./frontend/app/page.tsx [Server Component]
+[00:36:29.157] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:36:29.314] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:36:29.314] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:36:29.315] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853291227}
+[00:36:39.168] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Faringitis%20estreptoc%C3%B3cica color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Faringitis%20estreptoc%C3%B3cica","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853301074}
+[00:36:46.064] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853307977}
+[00:36:57.024] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Resfriado%20com%C3%BAn color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Resfriado%20com%C3%BAn","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853318928}
+[00:39:21.304] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853463218}
+[00:39:25.592] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Paperas color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Paperas","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853467501}
+[00:40:28.441] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853530353}
+[00:40:34.374] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Ros%C3%A9ola color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Ros%C3%A9ola","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853536287}
+[00:45:20.483] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853822385}
+[00:45:26.498] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Ros%C3%A9ola color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Ros%C3%A9ola","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853828406}
+[00:46:25.975] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853887880}
+[00:46:31.637] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Resfriado%20com%C3%BAn color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Resfriado%20com%C3%BAn","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853893546}
+[02:36:04.114] Server  LOG      ✓ Compiled in 34ms
+[02:38:31.376] Server  LOG      ✓ Compiled in 39ms

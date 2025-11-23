@@ -1,0 +1,1818 @@
+module.exports = [
+"[project]/frontend/lib/utils.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "cn",
+    ()=>cn
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/clsx/dist/clsx.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$tailwind$2d$merge$2f$dist$2f$bundle$2d$mjs$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/tailwind-merge/dist/bundle-mjs.mjs [app-ssr] (ecmascript)");
+;
+;
+function cn(...inputs) {
+    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$tailwind$2d$merge$2f$dist$2f$bundle$2d$mjs$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["twMerge"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["clsx"])(inputs));
+}
+}),
+"[project]/frontend/components/ui/button.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "Button",
+    ()=>Button,
+    "buttonVariants",
+    ()=>buttonVariants
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/@radix-ui/react-slot/dist/index.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$class$2d$variance$2d$authority$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/class-variance-authority/dist/index.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/lib/utils.ts [app-ssr] (ecmascript)");
+;
+;
+;
+;
+;
+const buttonVariants = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$class$2d$variance$2d$authority$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cva"])("inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0", {
+    variants: {
+        variant: {
+            default: "bg-primary text-primary-foreground hover:bg-primary/90",
+            destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+            outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+            secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+            ghost: "hover:bg-accent hover:text-accent-foreground",
+            link: "text-primary underline-offset-4 hover:underline"
+        },
+        size: {
+            default: "h-10 px-4 py-2",
+            sm: "h-9 rounded-md px-3",
+            lg: "h-11 rounded-md px-8",
+            icon: "h-10 w-10"
+        }
+    },
+    defaultVariants: {
+        variant: "default",
+        size: "default"
+    }
+});
+const Button = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, variant, size, asChild = false, ...props }, ref)=>{
+    const Comp = asChild ? __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slot$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Slot"] : "button";
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Comp, {
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])(buttonVariants({
+            variant,
+            size,
+            className
+        })),
+        ref: ref,
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/frontend/components/ui/button.tsx",
+        lineNumber: 46,
+        columnNumber: 7
+    }, ("TURBOPACK compile-time value", void 0));
+});
+Button.displayName = "Button";
+;
+}),
+"[project]/frontend/components/welcome-page.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "WelcomePage",
+    ()=>WelcomePage
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/components/ui/button.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/arrow-right.js [app-ssr] (ecmascript) <export default as ArrowRight>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$activity$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Activity$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/activity.js [app-ssr] (ecmascript) <export default as Activity>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Shield$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/shield.js [app-ssr] (ecmascript) <export default as Shield>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$brain$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Brain$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/brain.js [app-ssr] (ecmascript) <export default as Brain>");
+"use client";
+;
+;
+;
+function WelcomePage({ onStart }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "min-h-screen bg-black text-white flex items-center justify-center p-4 sm:p-6 relative overflow-hidden",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute inset-0 overflow-hidden",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "breathing-glow breathing-glow-1"
+                    }, void 0, false, {
+                        fileName: "[project]/frontend/components/welcome-page.tsx",
+                        lineNumber: 15,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "breathing-glow breathing-glow-2"
+                    }, void 0, false, {
+                        fileName: "[project]/frontend/components/welcome-page.tsx",
+                        lineNumber: 16,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "breathing-glow breathing-glow-3"
+                    }, void 0, false, {
+                        fileName: "[project]/frontend/components/welcome-page.tsx",
+                        lineNumber: 17,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/frontend/components/welcome-page.tsx",
+                lineNumber: 14,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "max-w-4xl mx-auto text-center relative z-10 w-full",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mb-6 sm:mb-8 fade-in-up",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 mb-4 sm:mb-6 rounded-full bg-white/10 backdrop-blur-sm breathing-scale",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$activity$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Activity$3e$__["Activity"], {
+                                    className: "w-8 h-8 sm:w-10 sm:h-10 text-white"
+                                }, void 0, false, {
+                                    fileName: "[project]/frontend/components/welcome-page.tsx",
+                                    lineNumber: 24,
+                                    columnNumber: 13
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/frontend/components/welcome-page.tsx",
+                                lineNumber: 23,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                className: "text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 sm:mb-4 tracking-tight text-balance px-2",
+                                children: [
+                                    "Diagnóstico de",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "block text-gradient",
+                                        children: "Enfermedades"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/welcome-page.tsx",
+                                        lineNumber: 28,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/components/welcome-page.tsx",
+                                lineNumber: 26,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-base sm:text-lg md:text-xl lg:text-2xl text-neutral-400 max-w-2xl mx-auto text-pretty px-4",
+                                children: "Sistema inteligente de evaluación de síntomas para enfermedades infecciosas"
+                            }, void 0, false, {
+                                fileName: "[project]/frontend/components/welcome-page.tsx",
+                                lineNumber: 30,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/frontend/components/welcome-page.tsx",
+                        lineNumber: 22,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12 fade-in-up px-2",
+                        style: {
+                            animationDelay: "0.2s"
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "feature-card",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 rounded-lg bg-green-500/20 flex items-center justify-center breathing-scale mx-auto",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$brain$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Brain$3e$__["Brain"], {
+                                            className: "w-5 h-5 sm:w-6 sm:h-6 text-green-400"
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/welcome-page.tsx",
+                                            lineNumber: 39,
+                                            columnNumber: 15
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/welcome-page.tsx",
+                                        lineNumber: 38,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                        className: "text-base sm:text-lg font-semibold mb-2",
+                                        children: "Análisis Preciso"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/welcome-page.tsx",
+                                        lineNumber: 41,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-xs sm:text-sm text-neutral-400 px-2",
+                                        children: "Algoritmo avanzado que evalúa múltiples síntomas y sus intensidades"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/welcome-page.tsx",
+                                        lineNumber: 42,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/components/welcome-page.tsx",
+                                lineNumber: 37,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "feature-card",
+                                style: {
+                                    animationDelay: "0.1s"
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 rounded-lg bg-blue-500/20 flex items-center justify-center breathing-scale mx-auto",
+                                        style: {
+                                            animationDelay: "0.5s"
+                                        },
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$activity$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Activity$3e$__["Activity"], {
+                                            className: "w-5 h-5 sm:w-6 sm:h-6 text-blue-400"
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/welcome-page.tsx",
+                                            lineNumber: 52,
+                                            columnNumber: 15
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/welcome-page.tsx",
+                                        lineNumber: 48,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                        className: "text-base sm:text-lg font-semibold mb-2",
+                                        children: "16 Síntomas"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/welcome-page.tsx",
+                                        lineNumber: 54,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-xs sm:text-sm text-neutral-400 px-2",
+                                        children: "Evaluación completa con escala de intensidad del 0 al 10"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/welcome-page.tsx",
+                                        lineNumber: 55,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/components/welcome-page.tsx",
+                                lineNumber: 47,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "feature-card sm:col-span-2 md:col-span-1",
+                                style: {
+                                    animationDelay: "0.2s"
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4 rounded-lg bg-red-500/20 flex items-center justify-center breathing-scale mx-auto",
+                                        style: {
+                                            animationDelay: "1s"
+                                        },
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Shield$3e$__["Shield"], {
+                                            className: "w-5 h-5 sm:w-6 sm:h-6 text-red-400"
+                                        }, void 0, false, {
+                                            fileName: "[project]/frontend/components/welcome-page.tsx",
+                                            lineNumber: 63,
+                                            columnNumber: 15
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/welcome-page.tsx",
+                                        lineNumber: 59,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                        className: "text-base sm:text-lg font-semibold mb-2",
+                                        children: "Base de Datos Médica"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/welcome-page.tsx",
+                                        lineNumber: 65,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-xs sm:text-sm text-neutral-400 px-2",
+                                        children: "Información detallada de enfermedades infecciosas comunes"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/welcome-page.tsx",
+                                        lineNumber: 66,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/components/welcome-page.tsx",
+                                lineNumber: 58,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/frontend/components/welcome-page.tsx",
+                        lineNumber: 36,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "fade-in-up px-4",
+                        style: {
+                            animationDelay: "0.4s"
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                onClick: onStart,
+                                size: "lg",
+                                className: "bg-white text-black hover:bg-neutral-200 font-semibold px-6 py-5 sm:px-8 sm:py-6 text-base sm:text-lg group transition-all duration-300 hover:scale-105 w-full sm:w-auto",
+                                children: [
+                                    "Comenzar Evaluación",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
+                                        className: "ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/welcome-page.tsx",
+                                        lineNumber: 78,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/components/welcome-page.tsx",
+                                lineNumber: 72,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "mt-6 sm:mt-8 text-xs sm:text-sm text-neutral-500 max-w-xl mx-auto px-2",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "text-yellow-500",
+                                        children: "⚠️"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/welcome-page.tsx",
+                                        lineNumber: 82,
+                                        columnNumber: 13
+                                    }, this),
+                                    " Esta herramienta es únicamente informativa y educativa. No reemplaza el diagnóstico de un profesional médico. Consulta a tu médico ante cualquier síntoma preocupante."
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/components/welcome-page.tsx",
+                                lineNumber: 81,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/frontend/components/welcome-page.tsx",
+                        lineNumber: 71,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/frontend/components/welcome-page.tsx",
+                lineNumber: 20,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/frontend/components/welcome-page.tsx",
+        lineNumber: 12,
+        columnNumber: 5
+    }, this);
+}
+}),
+"[project]/frontend/components/ui/card.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "Card",
+    ()=>Card,
+    "CardContent",
+    ()=>CardContent,
+    "CardDescription",
+    ()=>CardDescription,
+    "CardFooter",
+    ()=>CardFooter,
+    "CardHeader",
+    ()=>CardHeader,
+    "CardTitle",
+    ()=>CardTitle
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/lib/utils.ts [app-ssr] (ecmascript)");
+;
+;
+;
+const Card = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        ref: ref,
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("rounded-lg border bg-card text-card-foreground shadow-sm", className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/frontend/components/ui/card.tsx",
+        lineNumber: 9,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0)));
+Card.displayName = "Card";
+const CardHeader = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        ref: ref,
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("flex flex-col space-y-1.5 p-6", className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/frontend/components/ui/card.tsx",
+        lineNumber: 24,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0)));
+CardHeader.displayName = "CardHeader";
+const CardTitle = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+        ref: ref,
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("text-2xl font-semibold leading-none tracking-tight", className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/frontend/components/ui/card.tsx",
+        lineNumber: 36,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0)));
+CardTitle.displayName = "CardTitle";
+const CardDescription = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+        ref: ref,
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("text-sm text-muted-foreground", className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/frontend/components/ui/card.tsx",
+        lineNumber: 51,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0)));
+CardDescription.displayName = "CardDescription";
+const CardContent = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        ref: ref,
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("p-6 pt-0", className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/frontend/components/ui/card.tsx",
+        lineNumber: 63,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0)));
+CardContent.displayName = "CardContent";
+const CardFooter = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        ref: ref,
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("flex items-center p-6 pt-0", className),
+        ...props
+    }, void 0, false, {
+        fileName: "[project]/frontend/components/ui/card.tsx",
+        lineNumber: 71,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0)));
+CardFooter.displayName = "CardFooter";
+;
+}),
+"[project]/frontend/components/ui/slider.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "Slider",
+    ()=>Slider
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slider$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/@radix-ui/react-slider/dist/index.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/lib/utils.ts [app-ssr] (ecmascript)");
+"use client";
+;
+;
+;
+;
+const Slider = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slider$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Root"], {
+        ref: ref,
+        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("relative flex w-full touch-none select-none items-center", className),
+        ...props,
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slider$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Track"], {
+                className: "relative h-2 w-full grow overflow-hidden rounded-full bg-secondary",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slider$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Range"], {
+                    className: "absolute h-full bg-primary"
+                }, void 0, false, {
+                    fileName: "[project]/frontend/components/ui/slider.tsx",
+                    lineNumber: 21,
+                    columnNumber: 7
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/frontend/components/ui/slider.tsx",
+                lineNumber: 20,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slider$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Thumb"], {
+                className: "block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+            }, void 0, false, {
+                fileName: "[project]/frontend/components/ui/slider.tsx",
+                lineNumber: 23,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/frontend/components/ui/slider.tsx",
+        lineNumber: 12,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0)));
+Slider.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$slider$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Root"].displayName;
+;
+}),
+"[project]/frontend/lib/diseases-data.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "diseaseNameToImageSlug",
+    ()=>diseaseNameToImageSlug,
+    "diseasesDatabase",
+    ()=>diseasesDatabase,
+    "getAIModelName",
+    ()=>getAIModelName,
+    "getSeverityColor",
+    ()=>getSeverityColor,
+    "normalizeDiseaseName",
+    ()=>normalizeDiseaseName,
+    "numberToSeverity",
+    ()=>numberToSeverity,
+    "severityToNumber",
+    ()=>severityToNumber
+]);
+const diseasesDatabase = [
+    {
+        name: "Sarampión",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Erupción",
+                severity: "demasiado",
+                description: "Erupción roja en el cuerpo"
+            },
+            {
+                name: "Tos",
+                severity: "medio",
+                description: "Síntoma respiratorio"
+            },
+            {
+                name: "Fiebre alta",
+                severity: "considerable",
+                description: "Elevación de temperatura"
+            },
+            {
+                name: "Pequeñas manchas blancas en las mejillas",
+                severity: "medio",
+                description: "Manchas de Koplik"
+            }
+        ],
+        images: [
+            "sarampion-1.jpg",
+            "sarampion-2.jpg",
+            "sarampion-3.jpg"
+        ],
+        description: "Enfermedad viral muy contagiosa que causa fiebre alta, tos, secreción nasal, ojos rojos y, lo más distintivo, una erupción maculopapular (manchas planas y elevadas) en todo el cuerpo. La prevención es por vacunación (Triple Vírica, SRP).",
+        treatment: "No hay un tratamiento específico. El manejo se centra en el alivio de síntomas: reposo, líquidos y acetaminofén o ibuprofeno para la fiebre y el malestar. La suplementación con vitamina A puede ayudar en algunos casos.",
+        moreInfoUrl: "https://www.cigna.com/es-us/knowledge-center/hw/sarampin-stm159343"
+    },
+    {
+        name: "Resfriado común",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Fiebre",
+                severity: "medio",
+                description: "Elevación moderada de temperatura"
+            },
+            {
+                name: "Dolor de cabeza",
+                severity: "poco",
+                description: "Cefalea leve"
+            },
+            {
+                name: "Fatiga",
+                severity: "considerable",
+                description: "Cansancio general"
+            },
+            {
+                name: "Tos seca",
+                severity: "medio",
+                description: "Tos irritativa"
+            },
+            {
+                name: "Secreción nasal",
+                severity: "medio",
+                description: "Nariz tapada o secreción"
+            },
+            {
+                name: "Estornudos",
+                severity: "poco",
+                description: "Estornudos frecuentes"
+            }
+        ],
+        images: [
+            "resfriado-comun-1.jpg",
+            "resfriado-comun-2.jpg",
+            "resfriado-comun-3.jpg"
+        ],
+        description: "Infección viral leve y muy frecuente de las vías respiratorias superiores (nariz y garganta), causada principalmente por rinovirus. Provoca síntomas como secreción nasal, congestión, dolor de garganta y tos.",
+        treatment: "No hay cura. El tratamiento es paliativo: descanso, líquidos abundantes (agua, caldos), gárgaras con agua salada y medicamentos de venta libre como analgésicos y descongestionantes para aliviar los síntomas.",
+        moreInfoUrl: "https://www.mayoclinic.org/es/diseases-conditions/common-cold/diagnosis-treatment/drc-20351611"
+    },
+    {
+        name: "Conjuntivitis",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Ojo rosado",
+                severity: "medio",
+                description: "Inflamación del ojo"
+            },
+            {
+                name: "Ojos rojos",
+                severity: "considerable",
+                description: "Enrojecimiento del ojo"
+            },
+            {
+                name: "Secreción ocular",
+                severity: "medio",
+                description: "Secreción en los ojos"
+            },
+            {
+                name: "Ojos llorosos",
+                severity: "poco",
+                description: "Lagrimeo excesivo"
+            },
+            {
+                name: "Picazón",
+                severity: "poco",
+                description: "Sensación de picazón"
+            }
+        ],
+        images: [
+            "conjuntivitis-1.jpg",
+            "conjuntivitis-2.jpg",
+            "conjuntivitis-3.jpg"
+        ],
+        description: "Inflamación de la conjuntiva (membrana que recubre el párpado y parte del globo ocular), a menudo llamada ojo rosado. Puede ser causada por virus, bacterias o alergias. Provoca enrojecimiento, picazón, sensación de arena y secreción.",
+        treatment: "El tratamiento se centra en el alivio de síntomas: lágrimas artificiales, limpieza de párpados y compresas frías o tibias. Para la conjuntivitis bacteriana se pueden usar antibióticos (gotas u ungüentos); la viral solo requiere tiempo, y la alérgica, antihistamínicos y evitar el alérgeno.",
+        moreInfoUrl: "https://www.mayoclinic.org/es/diseases-conditions/pink-eye/diagnosis-treatment/drc-20376360"
+    },
+    {
+        name: "Shigellosis (Disentería Bacilar)",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Diarrea",
+                severity: "demasiado",
+                description: "Diarrea acuosa o con sangre"
+            },
+            {
+                name: "Dolor abdominal",
+                severity: "considerable",
+                description: "Dolor o calambres abdominales"
+            },
+            {
+                name: "Fiebre",
+                severity: "medio",
+                description: "Elevación de temperatura"
+            },
+            {
+                name: "Heces con sangre",
+                severity: "demasiado",
+                description: "Sangre en las heces"
+            },
+            {
+                name: "Náuseas",
+                severity: "medio",
+                description: "Sensación de náusea"
+            }
+        ],
+        images: [
+            "shigelosis-1.jpg",
+            "shigelosis-2.jpg",
+            "shigelosis-3.jpg"
+        ],
+        description: "La Shigellosis es una infección bacteriana del intestino causada por bacterias del género Shigella. Se transmite principalmente a través del agua o alimentos contaminados y es común en países con saneamiento deficiente. (NO SE AGREGARAN IMAGENES DEBIDO A LA SENSIBILIDAD)",
+        treatment: "El tratamiento incluye hidratación adecuada, reposo y en casos severos antibióticos específicos bajo prescripción médica. Es importante prevenir la deshidratación en pacientes pediátricos.",
+        moreInfoUrl: "https://es.wikipedia.org/wiki/Shigella"
+    },
+    {
+        name: "Tos ferina (Pertussis)",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Ataques de tos severos",
+                severity: "demasiado",
+                description: "Tos paroxística"
+            },
+            {
+                name: "Tos ferina",
+                severity: "considerable",
+                description: "Tos característica"
+            },
+            {
+                name: "Fiebre",
+                severity: "medio",
+                description: "Elevación moderada de temperatura"
+            },
+            {
+                name: "Vómitos después de toser",
+                severity: "medio",
+                description: "Vómitos post-tos"
+            },
+            {
+                name: "Secreción nasal",
+                severity: "poco",
+                description: "Nariz tapada"
+            }
+        ],
+        images: [
+            "tos-ferina-1.jpg",
+            "tos-ferina-2.jpg",
+            "tos-ferina-3.jpg"
+        ],
+        description: "Infección bacteriana respiratoria altamente contagiosa causada por Bordetella pertussis. Se caracteriza por episodios de tos intensa y violenta, a menudo seguidos de un sonido de silbido al inhalar. Es muy peligrosa en bebés. La prevención es por vacunación (DPT/Tdap).",
+        treatment: "El tratamiento es con antibióticos macrólidos (como azitromicina o eritromicina) para acortar la duración del contagio. Los lactantes gravemente enfermos suelen requerir hospitalización con succión de mucosidad y, a veces, oxígeno.",
+        moreInfoUrl: "https://www.msdmanuals.com/es/professional/enfermedades-infecciosas/bacilos-gramnegativos/tos-ferina"
+    },
+    {
+        name: "Infección por Norovirus",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Diarrea",
+                severity: "considerable",
+                description: "Diarrea acuosa"
+            },
+            {
+                name: "Vómitos",
+                severity: "medio",
+                description: "Náuseas o vómitos"
+            },
+            {
+                name: "Dolor abdominal",
+                severity: "medio",
+                description: "Dolor o calambres abdominales"
+            },
+            {
+                name: "Fiebre leve",
+                severity: "poco",
+                description: "Fiebre baja"
+            },
+            {
+                name: "Dolores musculares",
+                severity: "poco",
+                description: "Malestar general"
+            }
+        ],
+        images: [
+            "infeccion-por-norovirus-1.jpg",
+            "infeccion-por-norovirus-2.jpg",
+            "infeccion-por-norovirus-3.jpg"
+        ],
+        description: "Virus altamente contagioso que es una causa frecuente de gastroenteritis (inflamación del estómago e intestinos), a menudo causando brotes. Los síntomas principales son vómitos, cólicos abdominales y diarrea.",
+        treatment: "No existe un tratamiento específico, es un tratamiento de soporte centrado en evitar la deshidratación mediante el reemplazo de líquidos con soluciones orales o, en casos graves, líquidos intravenosos (IV). Se deben evitar los antidiarreicos en niños.",
+        moreInfoUrl: "https://www.msdmanuals.com/es/professional/trastornos-gastrointestinales/gastroenteritis/gastroenteritis-por-norovirus"
+    },
+    {
+        name: "Roséola",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Fiebre alta",
+                severity: "demasiado",
+                description: "Fiebre alta repentina"
+            },
+            {
+                name: "Erupción",
+                severity: "medio",
+                description: "Erupción después de la fiebre"
+            },
+            {
+                name: "Ganglios linfáticos inflamados",
+                severity: "poco",
+                description: "Ganglios inflamados"
+            },
+            {
+                name: "Irritabilidad",
+                severity: "medio",
+                description: "Irritabilidad en niños"
+            }
+        ],
+        images: [
+            "roseola-1.jpg",
+            "roseola-2.jpg",
+            "roseola-3.jpg"
+        ],
+        description: "Infección viral leve que afecta principalmente a bebés y niños pequeños, causada por el virus del herpes humano tipo 6 (VHH-6). Se caracteriza por una fiebre alta que dura unos días, seguida de una erupción rosada después de que la fiebre baja.",
+        treatment: "No hay tratamiento específico. El manejo se centra en el control de la fiebre alta con antipiréticos (acetaminofén o ibuprofeno), asegurar mucho descanso y líquidos para evitar la deshidratación.",
+        moreInfoUrl: "https://www.mayoclinic.org/es/diseases-conditions/roseola/diagnosis-treatment/drc-20377289"
+    },
+    {
+        name: "Rubéola",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Erupción roja en el cuerpo",
+                severity: "considerable",
+                description: "Erupción característica"
+            },
+            {
+                name: "Fiebre",
+                severity: "medio",
+                description: "Fiebre leve"
+            },
+            {
+                name: "Ganglios linfáticos inflamados",
+                severity: "medio",
+                description: "Ganglios inflamados"
+            },
+            {
+                name: "Dolor en las articulaciones",
+                severity: "poco",
+                description: "Dolores articulares"
+            }
+        ],
+        images: [
+            "rubeola-1.jpg",
+            "rubeola-2.jpg",
+            "rubeola-3.jpg"
+        ],
+        description: "Infección viral también conocida como sarampión alemán. Generalmente es leve en niños, causando una erupción cutánea roja, fiebre baja y ganglios linfáticos inflamados. Es grave en mujeres embarazadas debido al riesgo de síndrome de rubéola congénita. La prevención es por vacunación (Triple Vírica, SRP).",
+        treatment: "No existe un tratamiento para la enfermedad en sí. Se puede usar acetaminofén para reducir la fiebre. El enfoque principal es la prevención a través de la vacuna.",
+        moreInfoUrl: "https://medlineplus.gov/spanish/ency/article/001574.htm"
+    },
+    {
+        name: "Paperas",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Glándulas salivales inflamadas y dolorosas",
+                severity: "demasiado",
+                description: "Hinchazón de las glándulas parótidas"
+            },
+            {
+                name: "Fiebre",
+                severity: "medio",
+                description: "Elevación de temperatura"
+            },
+            {
+                name: "Dolor al masticar o tragar",
+                severity: "considerable",
+                description: "Dificultad al tragar"
+            },
+            {
+                name: "Dolores musculares",
+                severity: "poco",
+                description: "Malestar general"
+            },
+            {
+                name: "Cansancio",
+                severity: "medio",
+                description: "Fatiga"
+            }
+        ],
+        images: [
+            "paperas-1.jpg",
+            "paperas-2.jpg",
+            "paperas-3.jpg"
+        ],
+        description: "Enfermedad viral muy contagiosa causada por el virus de la parotiditis. Se caracteriza por la inflamación dolorosa de las glándulas salivales parótidas (cerca de la mandíbula y debajo de las orejas). La prevención es por vacunación (Triple Vírica, SRP).",
+        treatment: "No existe un tratamiento antiviral específico. El tratamiento es de soporte: analgésicos y antipiréticos para el dolor y la fiebre, reposo, hidratación y aplicación de frío local en caso de inflamación testicular (orquitis).",
+        moreInfoUrl: "https://www.guia-abe.es/temas-clinicos-parotiditis-aguda"
+    },
+    {
+        name: "Escarlatina",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Garganta roja y dolorida con parches",
+                severity: "demasiado",
+                description: "Dolor de garganta intenso"
+            },
+            {
+                name: "Fiebre alta",
+                severity: "considerable",
+                description: "Elevación extrema de temperatura"
+            },
+            {
+                name: "Erupción",
+                severity: "medio",
+                description: "Erupción roja característica"
+            },
+            {
+                name: "Lengua de fresa",
+                severity: "medio",
+                description: "Lengua característica"
+            },
+            {
+                name: "Dolor de cabeza",
+                severity: "poco",
+                description: "Cefalea"
+            }
+        ],
+        images: [
+            "escarlatina-1.jpg",
+            "escarlatina-2.jpg",
+            "escarlatina-3.jpg"
+        ],
+        description: "Erupción cutánea causada por la toxina de la bacteria Streptococcus pyogenes (estreptococo del grupo A), la misma que causa la faringitis estreptocócica. Se caracteriza por un sarpullido rojo, áspero como papel de lija, y lengua con aspecto de fresa.",
+        treatment: "El tratamiento es con antibióticos (como penicilina o amoxicilina) durante 10 días para prevenir complicaciones serias como la fiebre reumática. También se usan antipiréticos para el control de la fiebre.",
+        moreInfoUrl: "https://www.imss.gob.mx/sites/all/statics/guiasclinicas/466GRR.pdf"
+    },
+    {
+        name: "Faringitis estreptocócica",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Dolor de garganta",
+                severity: "demasiado",
+                description: "Garganta roja y dolorida"
+            },
+            {
+                name: "Fiebre",
+                severity: "considerable",
+                description: "Elevación de temperatura"
+            },
+            {
+                name: "Amígdalas rojas e inflamadas",
+                severity: "medio",
+                description: "Amígdalas inflamadas"
+            },
+            {
+                name: "Ganglios linfáticos inflamados",
+                severity: "medio",
+                description: "Ganglios inflamados"
+            },
+            {
+                name: "Dolor de cabeza",
+                severity: "poco",
+                description: "Cefalea"
+            }
+        ],
+        images: [
+            "farengitis-estreptococica-1.jpg",
+            "farengitis-estreptococica-2.jpg",
+            "farengitis-estreptococica-3.jpg"
+        ],
+        description: "Infección bacteriana de la garganta y las amígdalas causada por Streptococcus pyogenes (estreptococo del grupo A). Causa dolor de garganta repentino, dificultad para tragar, fiebre, amígdalas rojas e inflamadas y, a veces, manchas rojas o blancas en la garganta.",
+        treatment: "Se trata con un ciclo completo de antibióticos recetados por un médico para aliviar los síntomas y prevenir complicaciones graves. Reposo, líquidos abundantes y analgésicos para el dolor también son recomendados.",
+        moreInfoUrl: "https://kidshealth.org/es/parents/strep-throat.html"
+    },
+    {
+        name: "Impétigo",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Llagas agrupadas",
+                severity: "considerable",
+                description: "Lesiones en la piel"
+            },
+            {
+                name: "Costra amarilla",
+                severity: "medio",
+                description: "Costras características"
+            },
+            {
+                name: "Picazón",
+                severity: "medio",
+                description: "Picazón en las lesiones"
+            },
+            {
+                name: "Enrojecimiento",
+                severity: "poco",
+                description: "Zonas enrojecidas"
+            }
+        ],
+        images: [
+            "impetigo-1.jpg",
+            "impetigo-2.jpg",
+            "impetigo-3.jpg"
+        ],
+        description: "Infección cutánea superficial y muy contagiosa causada por bacterias (Streptococcus o Staphylococcus). Se manifiesta con llagas rojas que se abren, supuran líquido y forman una costra de color miel.",
+        treatment: "Se trata con antibióticos, que pueden ser en forma de pomada tópica (para pocas llagas) o por vía oral (para más llagas o casos más graves). Es importante seguir las indicaciones médicas y cubrir las llagas.",
+        moreInfoUrl: "https://www.cdc.gov/group-a-strep/es/about/acerca-del-impetigo.html"
+    },
+    {
+        name: "Candidiasis oral",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Parches blancos en las amígdalas",
+                severity: "medio",
+                description: "Manchas blancas"
+            },
+            {
+                name: "Dolor o ardor en la boca",
+                severity: "considerable",
+                description: "Malestar bucal"
+            },
+            {
+                name: "Sensación de algodón en la boca",
+                severity: "poco",
+                description: "Sensación característica"
+            },
+            {
+                name: "Pérdida del gusto",
+                severity: "poco",
+                description: "Alteración del gusto"
+            }
+        ],
+        images: [
+            "candidiasis-oral-1.jpg",
+            "candidiasis-oral-2.jpg",
+            "candidiasis-oral-3.jpg"
+        ],
+        description: "Infección fúngica (por hongos, generalmente Candida albicans) que afecta la boca. Se manifiesta con lesiones blancas cremosas, generalmente en la lengua o mejillas internas. Es común en bebés, personas con prótesis dentales o sistemas inmunitarios debilitados.",
+        treatment: "Se trata con medicamentos antimicóticos (líquidos, pastillas para chupar o tabletas) aplicados localmente o por vía oral. También se recomiendan enjuagues con agua salada tibia y una higiene bucal rigurosa.",
+        moreInfoUrl: "https://www.mayoclinic.org/es/diseases-conditions/oral-thrush/diagnosis-treatment/drc-20353539"
+    },
+    {
+        name: "Enfermedad de manos, pies y boca",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Erupción en manos y pies",
+                severity: "considerable",
+                description: "Erupción característica"
+            },
+            {
+                name: "Llagas en la boca",
+                severity: "medio",
+                description: "Lesiones bucales"
+            },
+            {
+                name: "Fiebre",
+                severity: "medio",
+                description: "Elevación de temperatura"
+            },
+            {
+                name: "Dolor de garganta",
+                severity: "poco",
+                description: "Malestar de garganta"
+            }
+        ],
+        images: [
+            "enfermedad-de-manos-pies-y-boca-1.jpg",
+            "enfermedad-de-manos-pies-y-boca-2.jpg",
+            "enfermedad-de-manos-pies-y-boca-3.jpg"
+        ],
+        description: "Infección viral común (generalmente por Coxsackievirus) que causa fiebre y llagas dolorosas en la boca, seguidas de una erupción cutánea con ampollas en manos y pies, y a veces en los glúteos. Afecta principalmente a niños pequeños.",
+        treatment: "No hay un medicamento específico; el tratamiento es de soporte para aliviar la fiebre y el dolor con acetaminofén o ibuprofeno. Es crucial asegurar una ingesta adecuada de líquidos para evitar la deshidratación.",
+        moreInfoUrl: "https://kidshealth.org/es/parents/hfm.html"
+    },
+    {
+        name: "Quinta enfermedad",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Erupción en la cara",
+                severity: "considerable",
+                description: "Mejillas enrojecidas"
+            },
+            {
+                name: "Fiebre",
+                severity: "medio",
+                description: "Fiebre leve"
+            },
+            {
+                name: "Dolores corporales",
+                severity: "poco",
+                description: "Malestar general"
+            },
+            {
+                name: "Dolor de cabeza",
+                severity: "poco",
+                description: "Cefalea leve"
+            }
+        ],
+        images: [
+            "quinta-enfermedad-1.jpg",
+            "quinta-enfermedad-2.jpg",
+            "quinta-enfermedad-3.jpg"
+        ],
+        description: "Infección viral común (causada por el parvovirus B19) que se presenta con síntomas leves parecidos a un resfriado y, posteriormente, una erupción característica en la cara (mejillas abofeteadas) y un sarpullido en el cuerpo.",
+        treatment: "No hay un tratamiento específico ya que suele ser una enfermedad leve que desaparece por sí sola. El tratamiento se centra en el alivio de síntomas, como descansar y tomar acetaminofén para la fiebre y el dolor.",
+        moreInfoUrl: "https://medlineplus.gov/spanish/fifthdisease.html"
+    },
+    {
+        name: "Infestación de piojos",
+        category: "Enfermedades infecciosas",
+        symptoms: [
+            {
+                name: "Piojos visibles en el cuero cabelludo",
+                severity: "demasiado",
+                description: "Presencia de piojos"
+            },
+            {
+                name: "Picazón en cuero cabelludo/cuello/orejas",
+                severity: "considerable",
+                description: "Picazón intensa"
+            },
+            {
+                name: "Cosquilleo en el cabello",
+                severity: "medio",
+                description: "Sensación de movimiento"
+            },
+            {
+                name: "Llagas en el cuero cabelludo",
+                severity: "poco",
+                description: "Por rascarse"
+            }
+        ],
+        images: [
+            "infestacion-de-piojos-1.jpg",
+            "infestacion-de-piojos-2.jpg",
+            "infestacion-de-piojos-3.jpg"
+        ],
+        description: "Infestación parasitaria de la cabeza, cuerpo o área púbica, causada por pequeños insectos que se alimentan de sangre humana. Causa picazón intensa y se detecta por la presencia de piojos adultos y liendres (huevos) adheridos al cabello.",
+        treatment: "Se trata con champús, cremas o lociones antiparasitarias de venta libre o recetadas. También se requiere la eliminación manual de liendres. El tratamiento a menudo se repite a los 7 o 10 días. Es vital la descontaminación de ropa y ropa de cama.",
+        moreInfoUrl: "https://www.msdmanuals.com/es/hogar/trastornos-de-la-piel/infecciones-cut%C3%A1neas-parasitarias/infestaci%C3%B3n-por-piojos"
+    }
+];
+function normalizeDiseaseName(name) {
+    return name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Remover acentos
+    .trim();
+}
+function diseaseNameToImageSlug(name) {
+    return name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Remover acentos
+    .replace(/[^\w\s-]/g, "") // Remover caracteres especiales
+    .replace(/\s+/g, "-") // Espacios a guiones
+    .replace(/-+/g, "-") // Guiones múltiples a uno
+    .trim();
+}
+function getAIModelName(diseaseName) {
+    return diseaseName;
+}
+const severityToNumber = (severity)=>{
+    const mapping = {
+        poco: 3,
+        medio: 5,
+        considerable: 7,
+        demasiado: 10
+    };
+    return mapping[severity];
+};
+const numberToSeverity = (num)=>{
+    if (num <= 3) return "poco";
+    if (num <= 5) return "medio";
+    if (num <= 7) return "considerable";
+    return "demasiado";
+};
+const getSeverityColor = (value)=>{
+    if (value === 0) return "transparent";
+    if (value <= 3) return "#22c55e" // green
+    ;
+    if (value <= 5) return "#eab308" // yellow
+    ;
+    if (value <= 7) return "#f97316" // orange
+    ;
+    return "#ef4444" // red
+    ;
+};
+}),
+"[project]/frontend/components/symptom-checker.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "SymptomChecker",
+    ()=>SymptomChecker
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/navigation.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/components/ui/card.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$slider$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/components/ui/slider.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/components/ui/button.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$diseases$2d$data$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/lib/diseases-data.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$left$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowLeft$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/arrow-left.js [app-ssr] (ecmascript) <export default as ArrowLeft>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__ = __turbopack_context__.i("[project]/frontend/node_modules/lucide-react/dist/esm/icons/arrow-right.js [app-ssr] (ecmascript) <export default as ArrowRight>");
+"use client";
+;
+;
+;
+;
+;
+;
+;
+;
+function SymptomChecker({ onBack }) {
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
+    const [mousePosition, setMousePosition] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({
+        x: 0,
+        y: 0
+    });
+    const [symptomSelections, setSymptomSelections] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({});
+    const [diagnosis, setDiagnosis] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    // Extract all unique symptoms
+    const allSymptoms = Array.from(new Set(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$diseases$2d$data$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["diseasesDatabase"].flatMap((disease)=>disease.symptoms.map((s)=>s.name)))).sort();
+    // Calculate average severity for cursor glow
+    const calculateAverageSeverity = ()=>{
+        const values = Object.values(symptomSelections).filter((v)=>v > 0);
+        if (values.length === 0) return 0;
+        return values.reduce((a, b)=>a + b, 0) / values.length;
+    };
+    const averageSeverity = calculateAverageSeverity();
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const handleMouseMove = (e)=>{
+            setMousePosition({
+                x: e.clientX,
+                y: e.clientY
+            });
+        };
+        window.addEventListener("mousemove", handleMouseMove);
+        return ()=>window.removeEventListener("mousemove", handleMouseMove);
+    }, []);
+    const handleSymptomChange = (symptom, value)=>{
+        setSymptomSelections((prev)=>({
+                ...prev,
+                [symptom]: value[0]
+            }));
+    };
+    const calculateDiagnosis = async ()=>{
+        try {
+            // Llamar al backend para obtener predicciones del modelo de AI
+            const res = await fetch("/api/diagnostico", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    sintomas: symptomSelections
+                })
+            });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const aiResponse = await res.json();
+            // Convertir predicciones del modelo de AI al formato DiagnosisResult
+            const results = aiResponse.predictions.map((prediction)=>{
+                // Buscar la enfermedad en diseasesDatabase para obtener información adicional
+                const disease = __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$diseases$2d$data$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["diseasesDatabase"].find((d)=>d.name === prediction.disease);
+                // Calcular síntomas coincidentes (síntomas de la enfermedad que el usuario seleccionó)
+                let matchedSymptoms = 0;
+                if (disease) {
+                    disease.symptoms.forEach((symptom)=>{
+                        const userValue = symptomSelections[symptom.name] || 0;
+                        if (userValue > 0) {
+                            matchedSymptoms++;
+                        }
+                    });
+                }
+                return {
+                    disease: prediction.disease,
+                    confidence: Math.round(prediction.confidence),
+                    matchedSymptoms: matchedSymptoms,
+                    totalSymptoms: disease?.symptoms.length || 0
+                };
+            });
+            // Ordenar por confianza (ya viene ordenado del backend, pero por si acaso)
+            results.sort((a, b)=>b.confidence - a.confidence);
+            // Mostrar solo las top 5 predicciones
+            setDiagnosis(results.slice(0, 5));
+        } catch (err) {
+            console.error("Error obteniendo diagnóstico del modelo de AI:", err);
+            alert("Error al procesar diagnóstico. Por favor, intenta nuevamente.");
+        }
+    };
+    // Nueva función para navegar a los detalles de la enfermedad
+    const handleDiseaseClick = (diseaseName)=>{
+        router.push(`/enfermedad/${encodeURIComponent(diseaseName)}`);
+    };
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "min-h-screen bg-black text-white p-6 relative",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "cursor-glow",
+                style: {
+                    left: `${mousePosition.x}px`,
+                    top: `${mousePosition.y}px`,
+                    background: (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$diseases$2d$data$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getSeverityColor"])(averageSeverity)
+                }
+            }, void 0, false, {
+                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                lineNumber: 119,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "max-w-6xl mx-auto relative z-10",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
+                        className: "mb-12",
+                        children: [
+                            onBack && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                onClick: onBack,
+                                variant: "ghost",
+                                className: "mb-4 text-neutral-400 hover:text-white hover:bg-white/5 transition-all breathing-scale",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$left$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowLeft$3e$__["ArrowLeft"], {
+                                        className: "w-4 h-4 mr-2"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                        lineNumber: 136,
+                                        columnNumber: 15
+                                    }, this),
+                                    "Volver"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                lineNumber: 131,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "text-center",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                        className: "text-5xl font-bold mb-3 tracking-tight",
+                                        children: "Diagnóstico de Enfermedades"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                        lineNumber: 141,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-lg text-neutral-400",
+                                        children: "Selecciona tus síntomas y ajusta su intensidad del 0 al 10"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                        lineNumber: 142,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                lineNumber: 140,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                        lineNumber: 129,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "grid lg:grid-cols-2 gap-8",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "fade-in-up",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
+                                        className: "bg-neutral-900/80 border-neutral-700 p-6 backdrop-blur-sm hover:border-neutral-600 transition-colors",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                className: "text-2xl font-semibold mb-6 text-white",
+                                                children: "Síntomas"
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                lineNumber: 150,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "space-y-6 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar",
+                                                children: allSymptoms.map((symptom)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "space-y-2",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "flex justify-between items-center",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                                        className: "text-sm font-medium text-white",
+                                                                        children: symptom
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                        lineNumber: 155,
+                                                                        columnNumber: 23
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "text-sm font-mono px-3 py-1 rounded-full font-semibold",
+                                                                        style: {
+                                                                            color: (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$diseases$2d$data$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getSeverityColor"])(symptomSelections[symptom] || 0),
+                                                                            backgroundColor: "rgba(255, 255, 255, 0.15)"
+                                                                        },
+                                                                        children: [
+                                                                            symptomSelections[symptom] || 0,
+                                                                            "/10"
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                        lineNumber: 156,
+                                                                        columnNumber: 23
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                lineNumber: 154,
+                                                                columnNumber: 21
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$slider$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Slider"], {
+                                                                value: [
+                                                                    symptomSelections[symptom] || 0
+                                                                ],
+                                                                onValueChange: (value)=>handleSymptomChange(symptom, value),
+                                                                max: 10,
+                                                                step: 1,
+                                                                className: "w-full"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                lineNumber: 166,
+                                                                columnNumber: 21
+                                                            }, this)
+                                                        ]
+                                                    }, symptom, true, {
+                                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                        lineNumber: 153,
+                                                        columnNumber: 19
+                                                    }, this))
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                lineNumber: 151,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                        lineNumber: 149,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
+                                        onClick: calculateDiagnosis,
+                                        className: "w-full mt-4 bg-white text-black hover:bg-neutral-200 font-semibold py-6 text-lg breathing-scale hover:scale-105 transition-all",
+                                        children: "Analizar Síntomas"
+                                    }, void 0, false, {
+                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                        lineNumber: 178,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                lineNumber: 148,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "fade-in-up",
+                                style: {
+                                    animationDelay: "0.2s"
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
+                                        className: "bg-neutral-900/80 border-neutral-700 p-6 backdrop-blur-sm hover:border-neutral-600 transition-colors",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                className: "text-2xl font-semibold mb-6 text-white",
+                                                children: "Posibles Diagnósticos"
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                lineNumber: 189,
+                                                columnNumber: 15
+                                            }, this),
+                                            diagnosis.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "text-center py-12 text-neutral-500",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        className: "text-lg",
+                                                        children: 'Ajusta los síntomas y presiona "Analizar Síntomas"'
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                        lineNumber: 192,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        className: "text-sm mt-2",
+                                                        children: "para ver posibles diagnósticos"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                        lineNumber: 193,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                lineNumber: 191,
+                                                columnNumber: 17
+                                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "space-y-4 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar",
+                                                children: diagnosis.map((result, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
+                                                        onClick: ()=>handleDiseaseClick(result.disease),
+                                                        className: "bg-neutral-800/90 border-neutral-600 p-4 hover:bg-neutral-750 hover:border-neutral-500 transition-all hover:scale-[1.02] cursor-pointer group",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "flex items-start justify-between mb-2",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "flex-1",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                                className: "flex items-center gap-2",
+                                                                                children: [
+                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                                                        className: "font-semibold text-lg text-white group-hover:text-blue-400 transition-colors",
+                                                                                        children: result.disease
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                                        lineNumber: 206,
+                                                                                        columnNumber: 29
+                                                                                    }, this),
+                                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
+                                                                                        className: "w-4 h-4 text-neutral-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all"
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                                        lineNumber: 209,
+                                                                                        columnNumber: 29
+                                                                                    }, this)
+                                                                                ]
+                                                                            }, void 0, true, {
+                                                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                                lineNumber: 205,
+                                                                                columnNumber: 27
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                                className: "text-sm text-neutral-400",
+                                                                                children: [
+                                                                                    result.matchedSymptoms,
+                                                                                    " de ",
+                                                                                    result.totalSymptoms,
+                                                                                    " síntomas coinciden"
+                                                                                ]
+                                                                            }, void 0, true, {
+                                                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                                lineNumber: 211,
+                                                                                columnNumber: 27
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                        lineNumber: 204,
+                                                                        columnNumber: 25
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "text-2xl font-bold",
+                                                                        style: {
+                                                                            color: (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$diseases$2d$data$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getSeverityColor"])(result.confidence / 10)
+                                                                        },
+                                                                        children: [
+                                                                            result.confidence,
+                                                                            "%"
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                        lineNumber: 215,
+                                                                        columnNumber: 25
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                lineNumber: 203,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "w-full bg-neutral-700 rounded-full h-2 overflow-hidden",
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "h-full transition-all duration-500",
+                                                                    style: {
+                                                                        width: `${result.confidence}%`,
+                                                                        backgroundColor: (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$lib$2f$diseases$2d$data$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getSeverityColor"])(result.confidence / 10)
+                                                                    }
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                    lineNumber: 223,
+                                                                    columnNumber: 25
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                lineNumber: 222,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-xs text-neutral-500 mt-2 group-hover:text-neutral-400 transition-colors",
+                                                                children: "Haz click para ver más información"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                lineNumber: 231,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        ]
+                                                    }, result.disease, true, {
+                                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                        lineNumber: 198,
+                                                        columnNumber: 21
+                                                    }, this))
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                lineNumber: 196,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                        lineNumber: 188,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
+                                        className: "bg-neutral-900/80 border-neutral-700 p-4 mt-4 backdrop-blur-sm",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                className: "text-sm font-semibold mb-3 text-white",
+                                                children: "Escala de Severidad"
+                                            }, void 0, false, {
+                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                lineNumber: 242,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "grid grid-cols-2 gap-2",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center gap-2",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "w-4 h-4 rounded",
+                                                                style: {
+                                                                    backgroundColor: "#22c55e"
+                                                                }
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                lineNumber: 245,
+                                                                columnNumber: 19
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "text-xs text-neutral-300",
+                                                                children: "Poco (1-3)"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                lineNumber: 246,
+                                                                columnNumber: 19
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                        lineNumber: 244,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center gap-2",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "w-4 h-4 rounded",
+                                                                style: {
+                                                                    backgroundColor: "#eab308"
+                                                                }
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                lineNumber: 249,
+                                                                columnNumber: 19
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "text-xs text-neutral-300",
+                                                                children: "Medio (4-5)"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                lineNumber: 250,
+                                                                columnNumber: 19
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                        lineNumber: 248,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center gap-2",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "w-4 h-4 rounded",
+                                                                style: {
+                                                                    backgroundColor: "#f97316"
+                                                                }
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                lineNumber: 253,
+                                                                columnNumber: 19
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "text-xs text-neutral-300",
+                                                                children: "Considerable (6-7)"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                lineNumber: 254,
+                                                                columnNumber: 19
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                        lineNumber: 252,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center gap-2",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "w-4 h-4 rounded",
+                                                                style: {
+                                                                    backgroundColor: "#ef4444"
+                                                                }
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                lineNumber: 257,
+                                                                columnNumber: 19
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "text-xs text-neutral-300",
+                                                                children: "Demasiado (8-10)"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                                lineNumber: 258,
+                                                                columnNumber: 19
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                        lineNumber: 256,
+                                                        columnNumber: 17
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                                lineNumber: 243,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                        lineNumber: 241,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                                lineNumber: 187,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                        lineNumber: 146,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
+                        className: "mt-12 text-center text-neutral-500 text-sm",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            children: "⚠️ Esta herramienta es solo informativa. Consulta a un profesional médico para un diagnóstico preciso."
+                        }, void 0, false, {
+                            fileName: "[project]/frontend/components/symptom-checker.tsx",
+                            lineNumber: 266,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/frontend/components/symptom-checker.tsx",
+                        lineNumber: 265,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/frontend/components/symptom-checker.tsx",
+                lineNumber: 128,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/frontend/components/symptom-checker.tsx",
+        lineNumber: 117,
+        columnNumber: 5
+    }, this);
+}
+}),
+"[project]/frontend/app/page.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>Home
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$welcome$2d$page$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/components/welcome-page.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$symptom$2d$checker$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/frontend/components/symptom-checker.tsx [app-ssr] (ecmascript)");
+"use client";
+;
+;
+;
+;
+function Home() {
+    const [showChecker, setShowChecker] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    if (showChecker) {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$symptom$2d$checker$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SymptomChecker"], {
+            onBack: ()=>setShowChecker(false)
+        }, void 0, false, {
+            fileName: "[project]/frontend/app/page.tsx",
+            lineNumber: 11,
+            columnNumber: 12
+        }, this);
+    }
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$welcome$2d$page$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["WelcomePage"], {
+        onStart: ()=>setShowChecker(true)
+    }, void 0, false, {
+        fileName: "[project]/frontend/app/page.tsx",
+        lineNumber: 14,
+        columnNumber: 10
+    }, this);
+}
+}),
+];
+
+//# sourceMappingURL=frontend_37c04406._.js.map
