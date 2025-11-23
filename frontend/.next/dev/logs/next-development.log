@@ -1,83 +1,136 @@
-[00:00:01.680] Server  LOG      ✓ Ready in 1192ms
-[00:00:04.794] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:05.996] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:05.996] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:05.996] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763834750380}
-[00:10:08.396] Server  LOG      ✓ Compiled in 60ms
-[00:11:05.801] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:11:05.938] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:11:05.938] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:11:05.939] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763835411011}
-[00:11:09.162] Browser LOG     Respuesta del backend: {"predictions":[{"confidence":96.43,"disease":"Rubéola"},{"confidence":1.36,"disease":"Conjuntivitis"}],"processed_symptoms":["ojo rosado"],"total_symptoms":1}
-[00:11:10.313] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Zika color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Zika","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763835415384}
-[00:11:30.774] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763835435838}
-[00:11:36.423] Browser LOG     Respuesta del backend: {"predictions":[{"confidence":63.61,"disease":"Candidiasis oral"},{"confidence":25.42,"disease":"Enfermedad de manos, pies y boca"},{"confidence":3.49,"disease":"Escarlatina"},{"confidence":1.94,"disease":"Paperas"},{"confidence":1.34,"disease":"Conjuntivitis"}],"processed_symptoms":["dificultad para tragar"],"total_symptoms":1}
-[00:11:37.203] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/T%C3%A9tanos color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/T%C3%A9tanos","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763835442270}
-[00:11:48.608] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763835453672}
-[00:11:54.126] Browser LOG     Respuesta del backend: {"predictions":[{"confidence":18.86,"disease":"Shigellosis (Disentería Bacilar)"},{"confidence":14.89,"disease":"Sarampión"},{"confidence":13.33,"disease":"Escarlatina"},{"confidence":12.51,"disease":"Infección por Norovirus"},{"confidence":10.28,"disease":"Rubéola"}],"processed_symptoms":["dolor abdominal","dolor en las articulaciones"],"total_symptoms":2}
-[00:11:55.367] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Fiebre%20Tifoidea color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Fiebre%20Tifoidea","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763835460442}
-[00:12:18.936] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763835484005}
-[00:12:29.130] Browser LOG     Respuesta del backend: {"predictions":[{"confidence":85.12,"disease":"Rubéola"},{"confidence":6.05,"disease":"Paperas"},{"confidence":2.2,"disease":"Enfermedad de manos, pies y boca"},{"confidence":1.89,"disease":"Infección por Norovirus"},{"confidence":1.73,"disease":"Conjuntivitis"}],"processed_symptoms":["ojo rosado","dolores musculares"],"total_symptoms":2}
-[00:12:30.077] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/C%C3%B3lera color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/C%C3%B3lera","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763835495146}
-[00:16:27.359] Server  LOG      ✓ Compiled in 41ms
-[00:16:34.964] Server  LOG      ✓ Compiled in 62ms
-[00:16:43.295] Server  LOG      ✓ Compiled in 55ms
-[00:16:47.694] Server  LOG      ✓ Compiled in 33ms
-[00:17:33.441] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:17:33.581] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:17:33.581] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/enfermedad/C%C3%B3lera","route":"/enfermedad/[id]"}
-[00:17:33.581] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/C%C3%B3lera color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/C%C3%B3lera","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763835798654}
-[00:22:47.145] Server  LOG      ✓ Compiled in 63ms
-[00:22:51.021] Server  LOG      ✓ Compiled in 32ms
-[00:22:51.108] Browser ERROR   uncaughtError: ReferenceError: getAIModelName is not defined
-[00:22:54.588] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:22:54.679] Server  LOG      ✓ Compiled in 33ms
-[00:22:54.725] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:22:54.725] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/enfermedad/C%C3%B3lera","route":"/enfermedad/[id]"}
-[00:22:54.725] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/C%C3%B3lera color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/C%C3%B3lera","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763836119769}
-[00:22:57.732] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763836122784}
-[00:23:03.529] Browser LOG     Respuesta del backend: {"predictions":[{"confidence":78.04,"disease":"Infestación de piojos"},{"confidence":5.68,"disease":"Conjuntivitis"},{"confidence":4.96,"disease":"Quinta enfermedad"},{"confidence":2.52,"disease":"Paperas"},{"confidence":2.45,"disease":"Shigellosis (Disentería Bacilar)"}],"processed_symptoms":["cosquilleo en el cabello"],"total_symptoms":1}
-[00:23:04.037] Server  LOG      ✓ Compiled in 37ms
-[00:23:04.950] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Infestaci%C3%B3n%20de%20piojos color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Infestaci%C3%B3n%20de%20piojos","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763836130001}
-[00:23:08.565] Server  LOG      ✓ Compiled in 32ms
-[00:23:26.330] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763836151388}
-[00:23:33.232] Browser LOG     Respuesta del backend: {"predictions":[{"confidence":58.78,"disease":"Impétigo"},{"confidence":19.73,"disease":"Roséola"},{"confidence":10,"disease":"Conjuntivitis"},{"confidence":3.53,"disease":"Paperas"},{"confidence":2,"disease":"Rubéola"}],"processed_symptoms":["costra amarilla","erupción"],"total_symptoms":2}
-[00:23:34.843] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Escarlatina color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Escarlatina","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763836159896}
-[00:26:33.336] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763836338375}
-[00:26:49.141] Browser LOG     Respuesta del backend: {"predictions":[{"confidence":78.04,"disease":"Infestación de piojos"},{"confidence":5.68,"disease":"Conjuntivitis"},{"confidence":4.96,"disease":"Quinta enfermedad"},{"confidence":2.52,"disease":"Paperas"},{"confidence":2.45,"disease":"Shigellosis (Disentería Bacilar)"}],"processed_symptoms":["cosquilleo en el cabello"],"total_symptoms":1}
-[00:26:55.120] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Infestaci%C3%B3n%20de%20piojos color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Infestaci%C3%B3n%20de%20piojos","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763836360167}
-[00:27:01.680] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763836366726}
-[00:27:06.660] Browser LOG     Respuesta del backend: {"predictions":[{"confidence":53.99,"disease":"Roséola"},{"confidence":22.55,"disease":"Infección por Norovirus"},{"confidence":14.06,"disease":"Candidiasis oral"},{"confidence":2.28,"disease":"Paperas"},{"confidence":1.99,"disease":"Escarlatina"}],"processed_symptoms":["dolor abdominal","diarrea","dolor al masticar o tragar"],"total_symptoms":3}
-[00:27:09.744] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Shigellosis%20(Disenter%C3%ADa%20Bacilar) color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Shigellosis%20(Disenter%C3%ADa%20Bacilar)","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763836374788}
-[00:38:32.582] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837057600}
-[00:39:44.064] Browser LOG     Respuesta del backend: {"predictions":[{"confidence":75.73,"disease":"Candidiasis oral"},{"confidence":16.04,"disease":"Roséola"},{"confidence":1.89,"disease":"Conjuntivitis"},{"confidence":1.49,"disease":"Shigellosis (Disentería Bacilar)"},{"confidence":1.46,"disease":"Infección por Norovirus"}],"processed_symptoms":["diarrea","dolor o ardor en la boca"],"total_symptoms":2}
-[00:39:45.514] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Shigellosis%20(Disenter%C3%ADa%20Bacilar) color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Shigellosis%20(Disenter%C3%ADa%20Bacilar)","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837130528}
-[00:39:48.135] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837133148}
-[00:39:59.279] Browser LOG     Respuesta del backend: {"predictions":[{"confidence":53.82,"disease":"Paperas"},{"confidence":17.27,"disease":"Shigellosis (Disentería Bacilar)"},{"confidence":10.22,"disease":"Sarampión"},{"confidence":8.28,"disease":"Tos ferina (Pertussis)"},{"confidence":2.93,"disease":"Infección por Norovirus"}],"processed_symptoms":["cansancio","ataques de tos severos","diarrea"],"total_symptoms":3}
-[00:42:52.331] Browser LOG     Respuesta del backend: {"predictions":[{"confidence":53.99,"disease":"Roséola"},{"confidence":22.55,"disease":"Infección por Norovirus"},{"confidence":14.06,"disease":"Candidiasis oral"},{"confidence":2.28,"disease":"Paperas"},{"confidence":1.99,"disease":"Escarlatina"}],"processed_symptoms":["diarrea","dolor abdominal","dolor al masticar o tragar"],"total_symptoms":3}
-[00:42:54.410] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Shigellosis%20(Disenter%C3%ADa%20Bacilar) color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Shigellosis%20(Disenter%C3%ADa%20Bacilar)","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837319420}
-[00:43:35.321] Server  LOG      ✓ Compiled in 40ms
-[00:44:24.293] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837409292}
-[00:44:41.779] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Ros%C3%A9ola color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Ros%C3%A9ola","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837426783}
-[00:44:44.345] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837429350}
-[00:44:56.617] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Ros%C3%A9ola color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Ros%C3%A9ola","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837441620}
-[00:45:00.322] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837445324}
-[00:45:16.013] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Shigellosis%20(Disenter%C3%ADa%20Bacilar) color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Shigellosis%20(Disenter%C3%ADa%20Bacilar)","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837461018}
-[00:45:25.087] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837470091}
-[00:45:29.853] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Paperas color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Paperas","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837474849}
-[00:45:41.698] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837486697}
-[00:45:49.620] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Infestaci%C3%B3n%20de%20piojos color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Infestaci%C3%B3n%20de%20piojos","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837494620}
-[00:45:51.595] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837496591}
-[00:46:01.654] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Infecci%C3%B3n%20por%20Norovirus color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Infecci%C3%B3n%20por%20Norovirus","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837506657}
-[00:46:03.373] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837508376}
-[00:46:12.728] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Infecci%C3%B3n%20por%20Norovirus color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Infecci%C3%B3n%20por%20Norovirus","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837517730}
-[00:46:14.713] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837519716}
-[00:46:27.302] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Tos%20ferina%20(Pertussis) color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Tos%20ferina%20(Pertussis)","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837532297}
-[00:46:38.867] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837543865}
-[00:48:20.612] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Ros%C3%A9ola color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Ros%C3%A9ola","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837645597}
-[00:48:26.188] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837651182}
-[00:50:30.611] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Paperas color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Paperas","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837775606}
-[00:50:31.421] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837776409}
-[00:50:45.592] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Shigellosis%20(Disenter%C3%ADa%20Bacilar) color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Shigellosis%20(Disenter%C3%ADa%20Bacilar)","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837790587}
-[00:53:48.592] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763837973581}
-[01:14:10.331] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Shigellosis%20(Disenter%C3%ADa%20Bacilar) color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Shigellosis%20(Disenter%C3%ADa%20Bacilar)","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763839195294}
+[00:00:01.216] Server  LOG      ✓ Ready in 790ms
+[00:00:03.933] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:03.962] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:04.003] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:04.094] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:04.095] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/ENFERMEDADES%20INTELIGENCIA%20ARTIFICIAL/Resfriado%20com%C3%BAn-2.jpg","route":"/ENFERMEDADES%20INTELIGENCIA%20ARTIFICIAL/Resfriado%20com%C3%BAn-2.jpg"}
+[00:00:04.095] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ENFERMEDADES%20INTELIGENCIA%20ARTIFICIAL/Resfriado%20com%C3%BAn-2.jpg color: rgb(120, 120, 120) color: inherit {"dp":"/ENFERMEDADES%20INTELIGENCIA%20ARTIFICIAL/Resfriado%20com%C3%BAn-2.jpg","o":"http://localhost:3000/ENFERMEDADES%20INTELIGENCIA%20ARTIFICIAL/Resfriado%20com%C3%BAn-2.jpg","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763851106009}
+[00:00:04.140] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:04.140] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:04.140] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763851106051}
+[00:00:04.201] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:04.201] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:04.201] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763851106114}
+[00:00:04.232] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:04.991] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:04.991] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:04.991] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763851106316}
+[00:00:13.564] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Resfriado%20com%C3%BAn color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Resfriado%20com%C3%BAn","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763851115437}
+[00:04:00.476] Server  LOG      ✓ Compiled in 51ms
+[00:04:04.541] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:04.739] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:04:04.739] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/enfermedad/Resfriado%20com%C3%BAn","route":"/enfermedad/[id]"}
+[00:04:04.739] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Resfriado%20com%C3%BAn color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Resfriado%20com%C3%BAn","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763851346645}
+[00:04:24.593] Server  LOG      ✓ Compiled in 41ms
+[00:05:08.863] Server  LOG      ✓ Compiled in 34ms
+[00:05:15.641] Server  LOG      ✓ Compiled in 40ms
+[00:05:23.786] Server  LOG      ✓ Compiled in 35ms
+[00:26:56.681] Server  LOG      ✓ Compiled in 39ms
+[00:27:08.058] Server  LOG      ✓ Compiled in 100ms
+[00:27:16.568] Server  LOG      ✓ Compiled in 35ms
+[00:27:23.708] Server  LOG      ✓ Compiled in 32ms
+[00:27:48.132] Server  LOG      ✓ Compiled in 35ms
+[00:28:01.489] Server  LOG      ✓ Compiled in 32ms
+[00:29:51.391] Server  LOG      ✓ Compiled in 31ms
+[00:30:38.350] Server  LOG      ✓ Compiled in 35ms
+[00:31:09.057] Server  LOG      ✓ Compiled in 36ms
+[00:31:38.164] Server  LOG      ✓ Compiled in 36ms
+[00:32:49.760] Server  LOG      ✓ Compiled in 38ms
+[00:33:50.894] Server  LOG      ✓ Compiled in 34ms
+[00:34:11.091] Server  LOG      ✓ Compiled in 33ms
+[00:34:17.654] Server  LOG      ✓ Compiled in 35ms
+[00:34:43.678] Server  LOG      ✓ Compiled in 35ms
+[00:35:04.837] Server  LOG      ✓ Compiled in 37ms
+[00:35:13.608] Server  LOG      ✓ Compiled in 59ms
+[00:35:13.981] Browser ERROR   ./frontend/lib/diseases-data.ts:231:198
+Parsing ecmascript source code failed
+  229 |       { name: "Dolor de cabeza", severity: "poco", description: "Cefalea leve" },
+  230 |     ],
+> 231 |     description: "Infección viral común (causada por el parvovirus B19) que se presenta con síntomas leves parecidos a un resfriado y, posteriormente, una erupción característica en la cara ("mejillas abofeteadas") y un sarpullido en el cuerpo.",
+      |                                                                                                                                                                                                      ^^^^^^^^
+  232 |     treatment: "",
+  233 |     moreInfoUrl: "",
+  234 |   },
+
+Expected ',', got 'mejillas'
+
+Import traces:
+  Client Component Browser:
+    ./frontend/lib/diseases-data.ts [Client Component Browser]
+    ./frontend/components/symptom-checker.tsx [Client Component Browser]
+    ./frontend/app/page.tsx [Client Component Browser]
+    ./frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/lib/diseases-data.ts [Client Component SSR]
+    ./frontend/components/symptom-checker.tsx [Client Component SSR]
+    ./frontend/app/page.tsx [Client Component SSR]
+    ./frontend/app/page.tsx [Server Component]
+[00:35:13.981] Browser ERROR   ./frontend/lib/diseases-data.ts:231:198
+Parsing ecmascript source code failed
+  229 |       { name: "Dolor de cabeza", severity: "poco", description: "Cefalea leve" },
+  230 |     ],
+> 231 |     description: "Infección viral común (causada por el parvovirus B19) que se presenta con síntomas leves parecidos a un resfriado y, posteriormente, una erupción característica en la cara ("mejillas abofeteadas") y un sarpullido en el cuerpo.",
+      |                                                                                                                                                                                                      ^^^^^^^^
+  232 |     treatment: "",
+  233 |     moreInfoUrl: "",
+  234 |   },
+
+Expected ',', got 'mejillas'
+
+Import traces:
+  Client Component Browser:
+    ./frontend/lib/diseases-data.ts [Client Component Browser]
+    ./frontend/components/symptom-checker.tsx [Client Component Browser]
+    ./frontend/app/page.tsx [Client Component Browser]
+    ./frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/lib/diseases-data.ts [Client Component SSR]
+    ./frontend/components/symptom-checker.tsx [Client Component SSR]
+    ./frontend/app/page.tsx [Client Component SSR]
+    ./frontend/app/page.tsx [Server Component]
+[00:35:53.486] Server  LOG      ✓ Compiled in 32ms
+[00:36:20.451] Server  LOG      ✓ Compiled in 32ms
+[00:36:21.832] Server  LOG      ✓ Compiled in 36ms
+[00:36:28.484] Browser ERROR   ./frontend/lib/diseases-data.ts:231:198
+Parsing ecmascript source code failed
+  229 |       { name: "Dolor de cabeza", severity: "poco", description: "Cefalea leve" },
+  230 |     ],
+> 231 |     description: "Infección viral común (causada por el parvovirus B19) que se presenta con síntomas leves parecidos a un resfriado y, posteriormente, una erupción característica en la cara ("mejillas abofeteadas") y un sarpullido en el cuerpo.",
+      |                                                                                                                                                                                                      ^^^^^^^^
+  232 |     treatment: "",
+  233 |     moreInfoUrl: "",
+  234 |   },
+
+Expected ',', got 'mejillas'
+
+Import traces:
+  Client Component Browser:
+    ./frontend/lib/diseases-data.ts [Client Component Browser]
+    ./frontend/components/symptom-checker.tsx [Client Component Browser]
+    ./frontend/app/page.tsx [Client Component Browser]
+    ./frontend/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./frontend/lib/diseases-data.ts [Client Component SSR]
+    ./frontend/components/symptom-checker.tsx [Client Component SSR]
+    ./frontend/app/page.tsx [Client Component SSR]
+    ./frontend/app/page.tsx [Server Component]
+[00:36:29.157] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:36:29.314] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:36:29.314] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:36:29.315] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853291227}
+[00:36:39.168] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Faringitis%20estreptoc%C3%B3cica color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Faringitis%20estreptoc%C3%B3cica","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853301074}
+[00:36:46.064] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853307977}
+[00:36:57.024] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Resfriado%20com%C3%BAn color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Resfriado%20com%C3%BAn","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853318928}
+[00:39:21.304] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853463218}
+[00:39:25.592] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Paperas color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Paperas","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853467501}
+[00:40:28.441] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853530353}
+[00:40:34.374] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Ros%C3%A9ola color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Ros%C3%A9ola","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853536287}
+[00:45:20.483] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853822385}
+[00:45:26.498] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Ros%C3%A9ola color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Ros%C3%A9ola","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853828406}
+[00:46:25.975] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853887880}
+[00:46:31.637] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/enfermedad/Resfriado%20com%C3%BAn color: rgb(120, 120, 120) color: inherit {"dp":"/enfermedad/[id]","o":"http://localhost:3000/enfermedad/Resfriado%20com%C3%BAn","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763853893546}
+[02:36:04.114] Server  LOG      ✓ Compiled in 34ms
+[02:38:31.376] Server  LOG      ✓ Compiled in 39ms

@@ -521,6 +521,8 @@ Slider.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f
 "use strict";
 
 __turbopack_context__.s([
+    "diseaseNameToImageSlug",
+    ()=>diseaseNameToImageSlug,
     "diseasesDatabase",
     ()=>diseasesDatabase,
     "getAIModelName",
@@ -559,7 +561,15 @@ const diseasesDatabase = [
                 severity: "medio",
                 description: "Manchas de Koplik"
             }
-        ]
+        ],
+        images: [
+            "sarampion-1.jpg",
+            "sarampion-2.jpg",
+            "sarampion-3.jpg"
+        ],
+        description: "Enfermedad viral muy contagiosa que causa fiebre alta, tos, secreción nasal, ojos rojos y, lo más distintivo, una erupción maculopapular (manchas planas y elevadas) en todo el cuerpo. La prevención es por vacunación (Triple Vírica, SRP).",
+        treatment: "No hay un tratamiento específico. El manejo se centra en el alivio de síntomas: reposo, líquidos y acetaminofén o ibuprofeno para la fiebre y el malestar. La suplementación con vitamina A puede ayudar en algunos casos.",
+        moreInfoUrl: "https://www.cigna.com/es-us/knowledge-center/hw/sarampin-stm159343"
     },
     {
         name: "Resfriado común",
@@ -595,7 +605,15 @@ const diseasesDatabase = [
                 severity: "poco",
                 description: "Estornudos frecuentes"
             }
-        ]
+        ],
+        images: [
+            "resfriado-comun-1.jpg",
+            "resfriado-comun-2.jpg",
+            "resfriado-comun-3.jpg"
+        ],
+        description: "Infección viral leve y muy frecuente de las vías respiratorias superiores (nariz y garganta), causada principalmente por rinovirus. Provoca síntomas como secreción nasal, congestión, dolor de garganta y tos.",
+        treatment: "No hay cura. El tratamiento es paliativo: descanso, líquidos abundantes (agua, caldos), gárgaras con agua salada y medicamentos de venta libre como analgésicos y descongestionantes para aliviar los síntomas.",
+        moreInfoUrl: "https://www.mayoclinic.org/es/diseases-conditions/common-cold/diagnosis-treatment/drc-20351611"
     },
     {
         name: "Conjuntivitis",
@@ -626,7 +644,15 @@ const diseasesDatabase = [
                 severity: "poco",
                 description: "Sensación de picazón"
             }
-        ]
+        ],
+        images: [
+            "conjuntivitis-1.jpg",
+            "conjuntivitis-2.jpg",
+            "conjuntivitis-3.jpg"
+        ],
+        description: "Inflamación de la conjuntiva (membrana que recubre el párpado y parte del globo ocular), a menudo llamada ojo rosado. Puede ser causada por virus, bacterias o alergias. Provoca enrojecimiento, picazón, sensación de arena y secreción.",
+        treatment: "El tratamiento se centra en el alivio de síntomas: lágrimas artificiales, limpieza de párpados y compresas frías o tibias. Para la conjuntivitis bacteriana se pueden usar antibióticos (gotas u ungüentos); la viral solo requiere tiempo, y la alérgica, antihistamínicos y evitar el alérgeno.",
+        moreInfoUrl: "https://www.mayoclinic.org/es/diseases-conditions/pink-eye/diagnosis-treatment/drc-20376360"
     },
     {
         name: "Shigellosis (Disentería Bacilar)",
@@ -657,7 +683,15 @@ const diseasesDatabase = [
                 severity: "medio",
                 description: "Sensación de náusea"
             }
-        ]
+        ],
+        images: [
+            "shigelosis-1.jpg",
+            "shigelosis-2.jpg",
+            "shigelosis-3.jpg"
+        ],
+        description: "La Shigellosis es una infección bacteriana del intestino causada por bacterias del género Shigella. Se transmite principalmente a través del agua o alimentos contaminados y es común en países con saneamiento deficiente. (NO SE AGREGARAN IMAGENES DEBIDO A LA SENSIBILIDAD)",
+        treatment: "El tratamiento incluye hidratación adecuada, reposo y en casos severos antibióticos específicos bajo prescripción médica. Es importante prevenir la deshidratación en pacientes pediátricos.",
+        moreInfoUrl: "https://es.wikipedia.org/wiki/Shigella"
     },
     {
         name: "Tos ferina (Pertussis)",
@@ -688,7 +722,15 @@ const diseasesDatabase = [
                 severity: "poco",
                 description: "Nariz tapada"
             }
-        ]
+        ],
+        images: [
+            "tos-ferina-1.jpg",
+            "tos-ferina-2.jpg",
+            "tos-ferina-3.jpg"
+        ],
+        description: "Infección bacteriana respiratoria altamente contagiosa causada por Bordetella pertussis. Se caracteriza por episodios de tos intensa y violenta, a menudo seguidos de un sonido de silbido al inhalar. Es muy peligrosa en bebés. La prevención es por vacunación (DPT/Tdap).",
+        treatment: "El tratamiento es con antibióticos macrólidos (como azitromicina o eritromicina) para acortar la duración del contagio. Los lactantes gravemente enfermos suelen requerir hospitalización con succión de mucosidad y, a veces, oxígeno.",
+        moreInfoUrl: "https://www.msdmanuals.com/es/professional/enfermedades-infecciosas/bacilos-gramnegativos/tos-ferina"
     },
     {
         name: "Infección por Norovirus",
@@ -719,7 +761,15 @@ const diseasesDatabase = [
                 severity: "poco",
                 description: "Malestar general"
             }
-        ]
+        ],
+        images: [
+            "infeccion-por-norovirus-1.jpg",
+            "infeccion-por-norovirus-2.jpg",
+            "infeccion-por-norovirus-3.jpg"
+        ],
+        description: "Virus altamente contagioso que es una causa frecuente de gastroenteritis (inflamación del estómago e intestinos), a menudo causando brotes. Los síntomas principales son vómitos, cólicos abdominales y diarrea.",
+        treatment: "No existe un tratamiento específico, es un tratamiento de soporte centrado en evitar la deshidratación mediante el reemplazo de líquidos con soluciones orales o, en casos graves, líquidos intravenosos (IV). Se deben evitar los antidiarreicos en niños.",
+        moreInfoUrl: "https://www.msdmanuals.com/es/professional/trastornos-gastrointestinales/gastroenteritis/gastroenteritis-por-norovirus"
     },
     {
         name: "Roséola",
@@ -745,7 +795,15 @@ const diseasesDatabase = [
                 severity: "medio",
                 description: "Irritabilidad en niños"
             }
-        ]
+        ],
+        images: [
+            "roseola-1.jpg",
+            "roseola-2.jpg",
+            "roseola-3.jpg"
+        ],
+        description: "Infección viral leve que afecta principalmente a bebés y niños pequeños, causada por el virus del herpes humano tipo 6 (VHH-6). Se caracteriza por una fiebre alta que dura unos días, seguida de una erupción rosada después de que la fiebre baja.",
+        treatment: "No hay tratamiento específico. El manejo se centra en el control de la fiebre alta con antipiréticos (acetaminofén o ibuprofeno), asegurar mucho descanso y líquidos para evitar la deshidratación.",
+        moreInfoUrl: "https://www.mayoclinic.org/es/diseases-conditions/roseola/diagnosis-treatment/drc-20377289"
     },
     {
         name: "Rubéola",
@@ -771,7 +829,15 @@ const diseasesDatabase = [
                 severity: "poco",
                 description: "Dolores articulares"
             }
-        ]
+        ],
+        images: [
+            "rubeola-1.jpg",
+            "rubeola-2.jpg",
+            "rubeola-3.jpg"
+        ],
+        description: "Infección viral también conocida como sarampión alemán. Generalmente es leve en niños, causando una erupción cutánea roja, fiebre baja y ganglios linfáticos inflamados. Es grave en mujeres embarazadas debido al riesgo de síndrome de rubéola congénita. La prevención es por vacunación (Triple Vírica, SRP).",
+        treatment: "No existe un tratamiento para la enfermedad en sí. Se puede usar acetaminofén para reducir la fiebre. El enfoque principal es la prevención a través de la vacuna.",
+        moreInfoUrl: "https://medlineplus.gov/spanish/ency/article/001574.htm"
     },
     {
         name: "Paperas",
@@ -802,7 +868,15 @@ const diseasesDatabase = [
                 severity: "medio",
                 description: "Fatiga"
             }
-        ]
+        ],
+        images: [
+            "paperas-1.jpg",
+            "paperas-2.jpg",
+            "paperas-3.jpg"
+        ],
+        description: "Enfermedad viral muy contagiosa causada por el virus de la parotiditis. Se caracteriza por la inflamación dolorosa de las glándulas salivales parótidas (cerca de la mandíbula y debajo de las orejas). La prevención es por vacunación (Triple Vírica, SRP).",
+        treatment: "No existe un tratamiento antiviral específico. El tratamiento es de soporte: analgésicos y antipiréticos para el dolor y la fiebre, reposo, hidratación y aplicación de frío local en caso de inflamación testicular (orquitis).",
+        moreInfoUrl: "https://www.guia-abe.es/temas-clinicos-parotiditis-aguda"
     },
     {
         name: "Escarlatina",
@@ -833,7 +907,15 @@ const diseasesDatabase = [
                 severity: "poco",
                 description: "Cefalea"
             }
-        ]
+        ],
+        images: [
+            "escarlatina-1.jpg",
+            "escarlatina-2.jpg",
+            "escarlatina-3.jpg"
+        ],
+        description: "Erupción cutánea causada por la toxina de la bacteria Streptococcus pyogenes (estreptococo del grupo A), la misma que causa la faringitis estreptocócica. Se caracteriza por un sarpullido rojo, áspero como papel de lija, y lengua con aspecto de fresa.",
+        treatment: "El tratamiento es con antibióticos (como penicilina o amoxicilina) durante 10 días para prevenir complicaciones serias como la fiebre reumática. También se usan antipiréticos para el control de la fiebre.",
+        moreInfoUrl: "https://www.imss.gob.mx/sites/all/statics/guiasclinicas/466GRR.pdf"
     },
     {
         name: "Faringitis estreptocócica",
@@ -864,7 +946,15 @@ const diseasesDatabase = [
                 severity: "poco",
                 description: "Cefalea"
             }
-        ]
+        ],
+        images: [
+            "farengitis-estreptococica-1.jpg",
+            "farengitis-estreptococica-2.jpg",
+            "farengitis-estreptococica-3.jpg"
+        ],
+        description: "Infección bacteriana de la garganta y las amígdalas causada por Streptococcus pyogenes (estreptococo del grupo A). Causa dolor de garganta repentino, dificultad para tragar, fiebre, amígdalas rojas e inflamadas y, a veces, manchas rojas o blancas en la garganta.",
+        treatment: "Se trata con un ciclo completo de antibióticos recetados por un médico para aliviar los síntomas y prevenir complicaciones graves. Reposo, líquidos abundantes y analgésicos para el dolor también son recomendados.",
+        moreInfoUrl: "https://kidshealth.org/es/parents/strep-throat.html"
     },
     {
         name: "Impétigo",
@@ -890,7 +980,15 @@ const diseasesDatabase = [
                 severity: "poco",
                 description: "Zonas enrojecidas"
             }
-        ]
+        ],
+        images: [
+            "impetigo-1.jpg",
+            "impetigo-2.jpg",
+            "impetigo-3.jpg"
+        ],
+        description: "Infección cutánea superficial y muy contagiosa causada por bacterias (Streptococcus o Staphylococcus). Se manifiesta con llagas rojas que se abren, supuran líquido y forman una costra de color miel.",
+        treatment: "Se trata con antibióticos, que pueden ser en forma de pomada tópica (para pocas llagas) o por vía oral (para más llagas o casos más graves). Es importante seguir las indicaciones médicas y cubrir las llagas.",
+        moreInfoUrl: "https://www.cdc.gov/group-a-strep/es/about/acerca-del-impetigo.html"
     },
     {
         name: "Candidiasis oral",
@@ -916,7 +1014,15 @@ const diseasesDatabase = [
                 severity: "poco",
                 description: "Alteración del gusto"
             }
-        ]
+        ],
+        images: [
+            "candidiasis-oral-1.jpg",
+            "candidiasis-oral-2.jpg",
+            "candidiasis-oral-3.jpg"
+        ],
+        description: "Infección fúngica (por hongos, generalmente Candida albicans) que afecta la boca. Se manifiesta con lesiones blancas cremosas, generalmente en la lengua o mejillas internas. Es común en bebés, personas con prótesis dentales o sistemas inmunitarios debilitados.",
+        treatment: "Se trata con medicamentos antimicóticos (líquidos, pastillas para chupar o tabletas) aplicados localmente o por vía oral. También se recomiendan enjuagues con agua salada tibia y una higiene bucal rigurosa.",
+        moreInfoUrl: "https://www.mayoclinic.org/es/diseases-conditions/oral-thrush/diagnosis-treatment/drc-20353539"
     },
     {
         name: "Enfermedad de manos, pies y boca",
@@ -942,7 +1048,15 @@ const diseasesDatabase = [
                 severity: "poco",
                 description: "Malestar de garganta"
             }
-        ]
+        ],
+        images: [
+            "enfermedad-de-manos-pies-y-boca-1.jpg",
+            "enfermedad-de-manos-pies-y-boca-2.jpg",
+            "enfermedad-de-manos-pies-y-boca-3.jpg"
+        ],
+        description: "Infección viral común (generalmente por Coxsackievirus) que causa fiebre y llagas dolorosas en la boca, seguidas de una erupción cutánea con ampollas en manos y pies, y a veces en los glúteos. Afecta principalmente a niños pequeños.",
+        treatment: "No hay un medicamento específico; el tratamiento es de soporte para aliviar la fiebre y el dolor con acetaminofén o ibuprofeno. Es crucial asegurar una ingesta adecuada de líquidos para evitar la deshidratación.",
+        moreInfoUrl: "https://kidshealth.org/es/parents/hfm.html"
     },
     {
         name: "Quinta enfermedad",
@@ -968,7 +1082,15 @@ const diseasesDatabase = [
                 severity: "poco",
                 description: "Cefalea leve"
             }
-        ]
+        ],
+        images: [
+            "quinta-enfermedad-1.jpg",
+            "quinta-enfermedad-2.jpg",
+            "quinta-enfermedad-3.jpg"
+        ],
+        description: "Infección viral común (causada por el parvovirus B19) que se presenta con síntomas leves parecidos a un resfriado y, posteriormente, una erupción característica en la cara (mejillas abofeteadas) y un sarpullido en el cuerpo.",
+        treatment: "No hay un tratamiento específico ya que suele ser una enfermedad leve que desaparece por sí sola. El tratamiento se centra en el alivio de síntomas, como descansar y tomar acetaminofén para la fiebre y el dolor.",
+        moreInfoUrl: "https://medlineplus.gov/spanish/fifthdisease.html"
     },
     {
         name: "Infestación de piojos",
@@ -994,11 +1116,26 @@ const diseasesDatabase = [
                 severity: "poco",
                 description: "Por rascarse"
             }
-        ]
+        ],
+        images: [
+            "infestacion-de-piojos-1.jpg",
+            "infestacion-de-piojos-2.jpg",
+            "infestacion-de-piojos-3.jpg"
+        ],
+        description: "Infestación parasitaria de la cabeza, cuerpo o área púbica, causada por pequeños insectos que se alimentan de sangre humana. Causa picazón intensa y se detecta por la presencia de piojos adultos y liendres (huevos) adheridos al cabello.",
+        treatment: "Se trata con champús, cremas o lociones antiparasitarias de venta libre o recetadas. También se requiere la eliminación manual de liendres. El tratamiento a menudo se repite a los 7 o 10 días. Es vital la descontaminación de ropa y ropa de cama.",
+        moreInfoUrl: "https://www.msdmanuals.com/es/hogar/trastornos-de-la-piel/infecciones-cut%C3%A1neas-parasitarias/infestaci%C3%B3n-por-piojos"
     }
 ];
 function normalizeDiseaseName(name) {
     return name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Remover acentos
+    .trim();
+}
+function diseaseNameToImageSlug(name) {
+    return name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Remover acentos
+    .replace(/[^\w\s-]/g, "") // Remover caracteres especiales
+    .replace(/\s+/g, "-") // Espacios a guiones
+    .replace(/-+/g, "-") // Guiones múltiples a uno
     .trim();
 }
 function getAIModelName(diseaseName) {

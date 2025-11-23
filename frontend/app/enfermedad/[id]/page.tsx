@@ -8,14 +8,14 @@ import { ArrowLeft, AlertCircle, Info, Brain, TrendingUp, Loader2 } from "lucide
 import { diseasesDatabase, getSeverityColor, severityToNumber, normalizeDiseaseName } from "@/lib/diseases-data"
 
 interface AIPrediction {
-  disease: string
-  confidence: number
+disease: string
+confidence: number
 }
 
 interface AIDiagnosisResponse {
-  predictions: AIPrediction[]
-  processed_symptoms: string[]
-  total_symptoms: number
+predictions: AIPrediction[]
+processed_symptoms: string[]
+total_symptoms: number
 }
 
 export default function EnfermedadDetalle() {
@@ -31,52 +31,52 @@ const diseaseName = decodeURIComponent(diseaseId)
 const disease = diseasesDatabase.find(d => d.name === diseaseName)
 
   // Función para obtener análisis del modelo de AI
-  useEffect(() => {
+useEffect(() => {
     if (!disease) return
 
     const fetchAIData = async () => {
-      setLoading(true)
-      setError(null)
-      
-      try {
+    setLoading(true)
+    setError(null)
+    
+    try {
         // Convertir síntomas de la enfermedad a formato para el modelo
         const symptomsDict: Record<string, number> = {}
         disease.symptoms.forEach(symptom => {
-          symptomsDict[symptom.name] = severityToNumber(symptom.severity)
+        symptomsDict[symptom.name] = severityToNumber(symptom.severity)
         })
 
         const response = await fetch("/api/diagnostico", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ sintomas: symptomsDict }),
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sintomas: symptomsDict }),
         })
 
         if (!response.ok) {
-          throw new Error(`Error del servidor: ${response.status}`)
+        throw new Error(`Error del servidor: ${response.status}`)
         }
 
         const data: AIDiagnosisResponse = await response.json()
         setAiData(data)
-      } catch (err) {
+    } catch (err) {
         console.error("Error obteniendo datos del AI:", err)
         setError("No se pudo obtener el análisis del modelo de AI")
-      } finally {
+    } finally {
         setLoading(false)
-      }
+    }
     }
 
     fetchAIData()
-  }, [disease])
+}, [disease])
 
   // Buscar la enfermedad en las predicciones (ahora todas las enfermedades coinciden exactamente)
-  const diseaseMatch = aiData?.predictions.find(
+const diseaseMatch = aiData?.predictions.find(
     p => normalizeDiseaseName(p.disease) === normalizeDiseaseName(diseaseName)
-  ) || null
+) || null
 
-  const diseaseConfidence = diseaseMatch?.confidence || null
+const diseaseConfidence = diseaseMatch?.confidence || null
 
   // Ordenar predicciones por confianza
-  const topPredictions = aiData?.predictions
+const topPredictions = aiData?.predictions
     .slice(0, 5)
     .sort((a, b) => b.confidence - a.confidence) || []
 
@@ -118,6 +118,85 @@ return (
             <Info className="w-5 h-5" />
             <p>Información detallada sobre la enfermedad</p>
         </div>
+
+        {/* Sección: Galería de imágenes + Descripción + Tratamiento */}
+        {(disease.images || disease.description || disease.treatment) && (
+        <div className="grid md:grid-cols-3 gap-6 mt-6 mb-8">
+            {/* Galería de imágenes */}
+            <div className="md:col-span-1">
+            {disease.images && disease.images.length > 0 ? (
+                <div className="space-y-3">
+                  {/* Imagen principal */}
+                <div className="relative w-full h-48 bg-neutral-800 rounded-lg overflow-hidden border border-neutral-700 hover:border-neutral-600 transition-all">
+                    <img
+                    src={disease.images[0]}
+                    alt={`${disease.name} - imagen principal`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    onError={(e) => {
+                        // Fallback si imagen no carga
+                        (e.target as HTMLImageElement).style.display = 'none'
+                    }}
+                    />
+                </div>
+                  {/* Miniaturas adicionales */}
+                {disease.images.length > 1 && (
+                    <div className="flex gap-2 overflow-x-auto">
+                    {disease.images.slice(1, 4).map((img, idx) => (
+                        <img
+                        key={idx}
+                        src={img}
+                        alt={`${disease.name} - imagen ${idx + 2}`}
+                        className="w-16 h-12 object-cover rounded border border-neutral-700 hover:border-neutral-600 cursor-pointer transition-all flex-shrink-0"
+                        loading="lazy"
+                        />
+                    ))}
+                    </div>
+                )}
+                </div>
+            ) : (
+                <div className="w-full h-48 bg-neutral-800 rounded-lg flex items-center justify-center border border-neutral-700">
+                <span className="text-neutral-400 text-sm text-center">Sin imágenes disponibles</span>
+                </div>
+            )}
+            </div>
+
+            {/* Descripción y Tratamiento */}
+            <div className="md:col-span-2 space-y-4">
+              {/* Descripción */}
+            {disease.description ? (
+                <Card className="bg-neutral-900/80 border-neutral-700 p-4">
+                <h3 className="font-semibold text-white mb-2 text-lg">Descripción</h3>
+                <p className="text-neutral-300 text-sm leading-relaxed">{disease.description}</p>
+                </Card>
+            ) : null}
+
+              {/* Tratamiento */}
+            {disease.treatment ? (
+                <Card className="bg-neutral-900/80 border-neutral-700 p-4">
+                <h3 className="font-semibold text-white mb-2 text-lg">Tratamiento recomendado</h3>
+                <p className="text-neutral-300 text-sm leading-relaxed">{disease.treatment}</p>
+                </Card>
+            ) : null}
+
+              {/* Link a más información */}
+            {disease.moreInfoUrl && (
+                <div className="pt-2">
+                <a
+                    href={disease.moreInfoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 underline transition-colors"
+                >
+                    Más información externa
+                    <span>↗</span>
+                </a>
+                </div>
+            )}
+            </div>
+        </div>
+        )}
+        
         
         {/* Análisis del Modelo de AI */}
         {loading && (
@@ -228,15 +307,15 @@ return (
                             <span className="text-sm font-semibold text-purple-300">
                               {pred.confidence.toFixed(1)}%
                             </span>
-                          </div>
+                        </div>
                         )
-                      })}
+                    })}
                     </div>
-                  </div>
+                </div>
                 )}
-              </div>
             </div>
-          </Card>
+            </div>
+        </Card>
         )}
         </div>
 
@@ -300,14 +379,14 @@ return (
             </div>
 
             {aiData && (
-              <div>
+            <div>
                 <h3 className="font-semibold text-white mb-2">Análisis del modelo:</h3>
                 <p className="text-sm">
-                  {diseaseConfidence !== null
+                {diseaseConfidence !== null
                     ? `El modelo de AI identificó esta enfermedad con un ${diseaseConfidence.toFixed(1)}% de confianza basado en los síntomas proporcionados.`
                     : `El modelo procesó ${aiData.total_symptoms} síntomas para generar predicciones.`}
                 </p>
-              </div>
+            </div>
             )}
             
             <div className="mt-6 p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
