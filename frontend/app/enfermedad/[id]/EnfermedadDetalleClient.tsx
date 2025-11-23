@@ -46,7 +46,7 @@ export default function EnfermedadDetalleClient({ diseaseId }: Props) {
           symptomsDict[symptom.name] = severityToNumber(symptom.severity)
         })
 
-        const response = await fetch("/api/diagnostico", {
+        const response = await fetch("https://backend-medical-ai.azurewebsites.net/api/diagnostico", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ sintomas: symptomsDict }),
