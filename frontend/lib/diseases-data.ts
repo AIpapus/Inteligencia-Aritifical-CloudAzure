@@ -21,7 +21,7 @@ export interface Disease {
 // ============================================
 // En desarrollo: http://localhost:5000/imagenes
 // En producción: https://papupruebas.blob.core.windows.net/enfermedades
-const BLOB_STORAGE_URL = "https://papupruebas.blob.core.windows.net/enfermedades"
+const BLOB_STORAGE_URL = "https://medicai.blob.core.windows.net/imagenes"
 
 /**
  * Obtiene la URL completa de una imagen
