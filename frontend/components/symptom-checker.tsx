@@ -6,7 +6,8 @@ import { Card } from "@/components/ui/card"
 import { Slider } from "@/components/ui/slider"
 import { Button } from "@/components/ui/button"
 import { diseasesDatabase, getSeverityColor } from "@/lib/diseases-data"
-import { ArrowLeft, ArrowRight } from "lucide-react"
+// 1. IMPORTAMOS EL ICONO DE CARGA (Loader2)
+import { ArrowLeft, ArrowRight, Loader2 } from "lucide-react"
 
 interface SymptomSelection {
   [key: string]: number
@@ -28,6 +29,9 @@ export function SymptomChecker({ onBack }: SymptomCheckerProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [symptomSelections, setSymptomSelections] = useState<SymptomSelection>({})
   const [diagnosis, setDiagnosis] = useState<DiagnosisResult[]>([])
+  
+  // 2. NUEVO ESTADO PARA CONTROLAR LA CARGA
+  const [isAnalyzing, setIsAnalyzing] = useState(false)
 
   // Extract all unique symptoms
   const allSymptoms = Array.from(
@@ -59,54 +63,61 @@ export function SymptomChecker({ onBack }: SymptomCheckerProps) {
     }))
   }
 
-const calculateDiagnosis = async () => {
-  try {
-    // Llamar al backend para obtener predicciones del modelo de AI
-    const res = await fetch("https://backend-medical-ai.azurewebsites.net/api/diagnostico", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ sintomas: symptomSelections }),
-    })
-    
-    if (!res.ok) throw new Error(`HTTP ${res.status}`)
-    
-    const aiResponse = await res.json()
-    
-    // Convertir predicciones del modelo de AI al formato DiagnosisResult
-    const results: DiagnosisResult[] = aiResponse.predictions.map((prediction: { disease: string; confidence: number }) => {
-      // Buscar la enfermedad en diseasesDatabase para obtener información adicional
-      const disease = diseasesDatabase.find(d => d.name === prediction.disease)
+  const calculateDiagnosis = async () => {
+    // 3. ACTIVAMOS LA CARGA AL INICIO
+    setIsAnalyzing(true)
+    setDiagnosis([]) // Limpiamos resultados anteriores para que se vea que está pensando
+
+    try {
+      // Llamar al backend para obtener predicciones del modelo de AI
+      const res = await fetch("https://backend-medical-ai.azurewebsites.net/api/diagnostico", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sintomas: symptomSelections }),
+      })
       
-      // Calcular síntomas coincidentes (síntomas de la enfermedad que el usuario seleccionó)
-      let matchedSymptoms = 0
-      if (disease) {
-        disease.symptoms.forEach((symptom) => {
-          const userValue = symptomSelections[symptom.name] || 0
-          if (userValue > 0) {
-            matchedSymptoms++
-          }
-        })
-      }
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
       
-      return {
-        disease: prediction.disease,
-        confidence: Math.round(prediction.confidence), // Confianza del modelo de AI
-        matchedSymptoms: matchedSymptoms,
-        totalSymptoms: disease?.symptoms.length || 0,
-      }
-    })
-    
-    // Ordenar por confianza (ya viene ordenado del backend, pero por si acaso)
-    results.sort((a, b) => b.confidence - a.confidence)
-    
-    // Mostrar solo las top 5 predicciones
-    setDiagnosis(results.slice(0, 5))
-    
-  } catch (err) {
-    console.error("Error obteniendo diagnóstico del modelo de AI:", err)
-    alert("Error al procesar diagnóstico. Por favor, intenta nuevamente.")
+      const aiResponse = await res.json()
+      
+      // Convertir predicciones del modelo de AI al formato DiagnosisResult
+      const results: DiagnosisResult[] = aiResponse.predictions.map((prediction: { disease: string; confidence: number }) => {
+        // Buscar la enfermedad en diseasesDatabase para obtener información adicional
+        const disease = diseasesDatabase.find(d => d.name === prediction.disease)
+        
+        // Calcular síntomas coincidentes (síntomas de la enfermedad que el usuario seleccionó)
+        let matchedSymptoms = 0
+        if (disease) {
+          disease.symptoms.forEach((symptom) => {
+            const userValue = symptomSelections[symptom.name] || 0
+            if (userValue > 0) {
+              matchedSymptoms++
+            }
+          })
+        }
+        
+        return {
+          disease: prediction.disease,
+          confidence: Math.round(prediction.confidence), // Confianza del modelo de AI
+          matchedSymptoms: matchedSymptoms,
+          totalSymptoms: disease?.symptoms.length || 0,
+        }
+      })
+      
+      // Ordenar por confianza (ya viene ordenado del backend, pero por si acaso)
+      results.sort((a, b) => b.confidence - a.confidence)
+      
+      // Mostrar solo las top 5 predicciones
+      setDiagnosis(results.slice(0, 5))
+      
+    } catch (err) {
+      console.error("Error obteniendo diagnóstico del modelo de AI:", err)
+      alert("Error al procesar diagnóstico. Por favor, intenta nuevamente.")
+    } finally {
+      // 4. DESACTIVAMOS LA CARGA AL FINAL (Éxito o Error)
+      setIsAnalyzing(false)
+    }
   }
-}
 
   // Nueva función para navegar a los detalles de la enfermedad
   const handleDiseaseClick = (diseaseName: string) => {
@@ -175,19 +186,35 @@ const calculateDiagnosis = async () => {
               </div>
             </Card>
 
+            {/* 5. BOTÓN MODIFICADO CON ANIMACIÓN */}
             <Button
               onClick={calculateDiagnosis}
-              className="w-full mt-4 bg-white text-black hover:bg-neutral-200 font-semibold py-6 text-lg breathing-scale hover:scale-105 transition-all"
+              disabled={isAnalyzing} // Deshabilita el botón mientras carga
+              className="w-full mt-4 bg-white text-black hover:bg-neutral-200 font-semibold py-6 text-lg breathing-scale hover:scale-105 transition-all disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
             >
-              Analizar Síntomas
+              {isAnalyzing ? (
+                <>
+                  <Loader2 className="mr-2 h-6 w-6 animate-spin" />
+                  Analizando síntomas...
+                </>
+              ) : (
+                "Analizar Síntomas"
+              )}
             </Button>
           </div>
 
           {/* Diagnosis Results Panel */}
           <div className="fade-in-up" style={{ animationDelay: "0.2s" }}>
-            <Card className="bg-neutral-900/80 border-neutral-700 p-6 backdrop-blur-sm hover:border-neutral-600 transition-colors">
+            <Card className="bg-neutral-900/80 border-neutral-700 p-6 backdrop-blur-sm hover:border-neutral-600 transition-colors min-h-[200px]">
               <h2 className="text-2xl font-semibold mb-6 text-white">Posibles Diagnósticos</h2>
-              {diagnosis.length === 0 ? (
+              
+              {/* 6. ESTADO DE CARGA VISUAL EN EL PANEL DERECHO TAMBIÉN */}
+              {isAnalyzing ? (
+                <div className="flex flex-col items-center justify-center py-12 text-neutral-400">
+                  <Loader2 className="w-10 h-10 animate-spin mb-4 text-purple-500" />
+                  <p className="text-lg animate-pulse">Consultando modelo de IA...</p>
+                </div>
+              ) : diagnosis.length === 0 ? (
                 <div className="text-center py-12 text-neutral-500">
                   <p className="text-lg">Ajusta los síntomas y presiona "Analizar Síntomas"</p>
                   <p className="text-sm mt-2">para ver posibles diagnósticos</p>
