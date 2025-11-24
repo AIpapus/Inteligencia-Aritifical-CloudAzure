@@ -21,7 +21,7 @@ export interface Disease {
 // ============================================
 // En desarrollo: http://localhost:5000/imagenes
 // En producción: https://papupruebas.blob.core.windows.net/enfermedades
-const BLOB_STORAGE_URL = process.env.NEXT_PUBLIC_BLOB_STORAGE_URL || "https://backend-medical-ai.azurewebsites.net/api/imagenes"
+const BLOB_STORAGE_URL = "https://backend-medical-ai.azurewebsites.net/imagenes"
 
 /**
  * Obtiene la URL completa de una imagen
@@ -31,9 +31,14 @@ export function getImageUrl(filename: string): string {
   if (filename.startsWith('http')) {
     return filename
   }
-  // Si tiene path, extraer solo el nombre del archivo
-  const cleanFilename = filename.split('/').pop() || filename
-  return `${BLOB_STORAGE_URL}/${encodeURIComponent(cleanFilename)}`
+  
+  // Limpieza defensiva: Si el nombre viene con barra inicial, la quitamos
+  const cleanName = filename.startsWith('/') ? filename.slice(1) : filename;
+  
+  // Si tiene path complejo, extraer solo el nombre del archivo (seguridad extra)
+  const finalName = cleanName.split('/').pop() || cleanName
+  
+  return `${BLOB_STORAGE_URL}/${encodeURIComponent(finalName)}`
 }
 
 // ============================================
